@@ -1,0 +1,93 @@
+.auth {
+  --font-family: "Wix Madefor Text";
+  --bg-color: #f5f7f9;
+  --shadow: 0 0 7px 0px #6164619e;
+  --submit-btn-bg-color: #1f883d;
+  --border-color: #d1d9e0;
+  --focus-border-color: #0969da;
+  --change-mode-link-color: #0969da;
+  font-family: var(--font-family);
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 30px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.logo {
+  margin-bottom: 40px;
+}
+
+.title {
+  margin-bottom: 15px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.label {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.input {
+  margin-bottom: 10px;
+  min-width: 400px;
+  &:last-of-type {
+    margin-bottom: 20px;
+  }
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+  background-color: var(--submit-btn-bg-color);
+  opacity: 0.9;
+  color: white;
+  transition: var(--basic-transition);
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.input,
+.submit-btn {
+  outline: none;
+  padding: 8px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.input:focus-visible,
+.submit-btn:focus-visible {
+  border-color: var(--focus-border-color);
+}
+
+.change-mod-link {
+  color: var(--change-mode-link-color);
+  font-weight: 500;
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

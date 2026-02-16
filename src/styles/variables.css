@@ -1,3 +1,4 @@
 :root {
   --max-width: 1920px;
+  --basic-transition: all 0.3s ease-in-out;
 }
