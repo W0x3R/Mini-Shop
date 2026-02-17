@@ -4,9 +4,12 @@ import { useState } from "react";
 import * as styles from "./AuthUser.module.css";
 import logo from "/src/assets/images/logo.jpg";
 import { useRegisterUserMutation } from "../../app/api/apiSlice";
-import { addUser } from "../../features/auth/authSlice";
-import { saveUsersToStorage } from "../../utils/authStorage";
-import { validateRegisterUser } from "../../utils/registerValidation";
+import { addUser, login } from "../../features/auth/authSlice";
+import { saveAuthToStorage, saveUsersToStorage } from "../../utils/authStorage";
+import {
+  validateLoginUser,
+  validateRegisterUser,
+} from "../../utils/registerValidation";
 
 export const AuthUser = ({ mode }) => {
   const [localError, setLocalError] = useState(null);
@@ -16,12 +19,7 @@ export const AuthUser = ({ mode }) => {
   const users = useSelector((state) => state.auth.users);
   const isLogin = mode === "login";
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLocalError(null);
-
-    const formData = Object.fromEntries(new FormData(e.currentTarget));
-
+  const handleRegister = async (formData) => {
     const errorMessage = validateRegisterUser(formData, users);
     if (errorMessage) {
       setLocalError(errorMessage);
@@ -46,11 +44,33 @@ export const AuthUser = ({ mode }) => {
 
       const updatedUsers = [...users, newUser];
       saveUsersToStorage(updatedUsers);
-
       navigate("/login");
-      e.target.reset();
     } catch (error) {
-      setError("Something went wrong");
+      setLocalError("Something went wrong");
+    }
+  };
+
+  const handleLogin = (formData) => {
+    const result = validateLoginUser(formData, users);
+    if (!result.success) {
+      setLocalError(result.error);
+      return;
+    }
+    dispatch(login(result.user));
+    saveAuthToStorage(result.user);
+    navigate("/");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLocalError(null);
+
+    const formData = Object.fromEntries(new FormData(e.currentTarget));
+
+    if (isLogin) {
+      handleLogin(formData);
+    } else {
+      await handleRegister(formData);
     }
   };
 
@@ -59,7 +79,7 @@ export const AuthUser = ({ mode }) => {
       <div className={`${styles.wrapper} container`}>
         <img className={styles.logo} width={55} height={55} src={logo} alt="" />
         <h1 className={styles.title}>{isLogin ? "Login" : "Registration"}</h1>
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form key={mode} className={styles.form} onSubmit={handleSubmit}>
           <label className={styles.label} htmlFor="user-name">
             Username
           </label>

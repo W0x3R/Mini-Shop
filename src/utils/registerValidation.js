@@ -10,3 +10,26 @@ export const validateRegisterUser = (formData, users) => {
   }
   return null;
 };
+
+export const validateLoginUser = (formData, users) => {
+  const foundUser = users.find((user) => user.username === formData.username);
+
+  if (!foundUser) {
+    return {
+      success: false,
+      error: "User not found",
+    };
+  }
+
+  if (foundUser.password !== formData.password) {
+    return {
+      success: false,
+      error: "Wrong password",
+    };
+  }
+
+  return {
+    success: true,
+    user: foundUser,
+  };
+};
