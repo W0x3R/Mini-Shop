@@ -47,7 +47,12 @@
 .input {
   margin-bottom: 10px;
   min-width: 400px;
-  &:last-of-type {
+
+  &:has(+ .error) {
+    margin-bottom: 10px;
+  }
+
+  &:has(+ button) {
     margin-bottom: 20px;
   }
 }
@@ -90,4 +95,10 @@
       text-decoration: underline;
     }
   }
+}
+
+.error {
+  margin-bottom: 10px;
+  color: red;
+  text-align: center;
 }

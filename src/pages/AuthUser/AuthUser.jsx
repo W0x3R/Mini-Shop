@@ -1,0 +1,133 @@
+import { Link, useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import * as styles from "./AuthUser.module.css";
+import logo from "/src/assets/images/logo.jpg";
+import { useRegisterUserMutation } from "../../app/api/apiSlice";
+import { addUser } from "../../features/auth/authSlice";
+import { saveUsersToStorage } from "../../utils/authStorage";
+import { validateRegisterUser } from "../../utils/registerValidation";
+
+export const AuthUser = ({ mode }) => {
+  const [localError, setLocalError] = useState(null);
+  const [registerUser, { isLoading }] = useRegisterUserMutation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const users = useSelector((state) => state.auth.users);
+  const isLogin = mode === "login";
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLocalError(null);
+
+    const formData = Object.fromEntries(new FormData(e.currentTarget));
+
+    const errorMessage = validateRegisterUser(formData, users);
+    if (errorMessage) {
+      setLocalError(errorMessage);
+      return;
+    }
+
+    try {
+      const createdUser = await registerUser({
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
+      }).unwrap();
+
+      const newUser = {
+        id: createdUser.id,
+        username: createdUser.username,
+        email: createdUser.email,
+        password: createdUser.password,
+      };
+
+      dispatch(addUser(newUser));
+
+      const updatedUsers = [...users, newUser];
+      saveUsersToStorage(updatedUsers);
+
+      navigate("/login");
+      e.target.reset();
+    } catch (error) {
+      setError("Something went wrong");
+    }
+  };
+
+  return (
+    <section className={styles.auth}>
+      <div className={`${styles.wrapper} container`}>
+        <img className={styles.logo} width={55} height={55} src={logo} alt="" />
+        <h1 className={styles.title}>{isLogin ? "Login" : "Registration"}</h1>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label className={styles.label} htmlFor="user-name">
+            Username
+          </label>
+          <input
+            id="user-name"
+            className={styles.input}
+            type="text"
+            name="username"
+            autoComplete="on"
+            required
+          />
+          {!isLogin && (
+            <>
+              <label className={styles.label} htmlFor="user-email">
+                Email
+              </label>
+              <input
+                id="user-email"
+                className={styles.input}
+                type="email"
+                name="email"
+                autoComplete="on"
+                required
+              />
+            </>
+          )}
+          <label htmlFor="user-password" className={styles.label}>
+            Password
+          </label>
+          <input
+            id="user-password"
+            className={styles.input}
+            type="password"
+            name="password"
+            autoComplete="on"
+            required
+          />
+          {!isLogin && (
+            <>
+              <label htmlFor="user-current-password" className={styles.label}>
+                Confirm password
+              </label>
+              <input
+                id="user-current-password"
+                className={styles.input}
+                type="password"
+                name="current_password"
+                autoComplete="on"
+                required
+              />
+            </>
+          )}
+          {localError && <p className={styles.error}>{localError}</p>}
+          <button
+            className={styles["submit-btn"]}
+            type="submit"
+            disabled={isLoading}
+          >
+            {isLogin ? "Login" : isLoading ? "Loading..." : "Register"}
+          </button>
+        </form>
+        <Link
+          className={styles["change-mod-link"]}
+          to={isLogin ? "/register" : "/login"}
+        >
+          {isLogin ? "Don't have an account?" : "Already registered?"}
+        </Link>
+      </div>
+    </section>
+  );
+};
