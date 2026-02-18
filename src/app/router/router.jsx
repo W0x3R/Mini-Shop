@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router";
-import { Layout } from "../../Layout/Layout";
-import { AuthUser } from "../../pages/AuthUser/AuthUser";
+import { Layout } from "@layout/Layout";
+import { AuthUser } from "@components/auth-user";
 
 export const router = createBrowserRouter([
   {

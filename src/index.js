@@ -1,10 +1,10 @@
 import { createRoot } from "react-dom/client";
-import "./styles/index.css";
-import { RouterProvider } from "react-router";
-import { router } from "./app/router/router";
-import { Provider } from "react-redux";
-import { persistor, store } from "./app/store/store";
 import { PersistGate } from "redux-persist/integration/react";
+import { RouterProvider } from "react-router";
+import { Provider } from "react-redux";
+import "./styles/index.css";
+import { router } from "@app/router";
+import { persistor, store } from "@app/store";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>

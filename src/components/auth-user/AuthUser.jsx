@@ -2,13 +2,13 @@ import { Link, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import * as styles from "./AuthUser.module.css";
-import logo from "/src/assets/images/logo.jpg";
-import { useRegisterUserMutation } from "../../app/api/apiSlice";
-import { addUser, login } from "../../features/auth/authSlice";
+import logo from "@assets/images/logo.jpg";
+import { useRegisterUserMutation } from "@app/api";
+import { addUser, login } from "@features/auth";
 import {
   validateLoginUser,
   validateRegisterUser,
-} from "../../utils/registerValidation";
+} from "@utils/registerValidation";
 
 export const AuthUser = ({ mode }) => {
   const [localError, setLocalError] = useState(null);

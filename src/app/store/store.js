@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "../../features/auth/authSlice";
-import { apiSlice } from "../api/apiSlice";
-import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import authReducer from "@features/auth";
+import { apiSlice } from "@app/api";
 
 const persistConfig = {
   key: "auth",
@@ -20,7 +20,14 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"],
+        ignoredActions: [
+          "persist/PERSIST",
+          "persist/REHYDRATE",
+          "persist/FLUSH",
+          "persist/PAUSE",
+          "persist/PURGE",
+          "persist/REGISTER",
+        ],
       },
     }).concat(apiSlice.middleware),
 });

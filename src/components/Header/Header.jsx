@@ -1,8 +1,8 @@
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router";
 import * as styles from "./Header.module.css";
-import profileLogo from "/src/assets/images/profile-arrow.svg";
-import cartLogo from "/src/assets/images/cart.svg";
-import { useEffect, useRef, useState } from "react";
+import profileLogo from "@assets/images/profile-arrow.svg";
+import cartLogo from "@assets/images/cart.svg";
 
 export const Header = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
