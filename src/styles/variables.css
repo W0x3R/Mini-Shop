@@ -1,4 +1,14 @@
 :root {
   --max-width: 1920px;
+
+  --white-color: #fff;
+  --red-color: #ff0000;
+  --focus-color: #0969da;
+  --primary-link-color: #0969da;
+  --primary-green-color: #1f883d;
+
+  --basic-shadow: 0 0 7px 0px #6164619e;
   --basic-transition: all 0.3s ease-in-out;
+
+  --secondary-font-family: "Wix Madefor Text";
 }
