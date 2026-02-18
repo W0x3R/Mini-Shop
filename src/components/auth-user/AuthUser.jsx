@@ -5,6 +5,7 @@ import * as styles from "./AuthUser.module.css";
 import logo from "@assets/images/logo.jpg";
 import { useRegisterUserMutation } from "@app/api";
 import { addUser, login } from "@features/auth";
+import { Container } from "@components/container";
 import {
   validateLoginUser,
   validateRegisterUser,
@@ -76,7 +77,7 @@ export const AuthUser = ({ mode }) => {
 
   return (
     <section className={styles.auth}>
-      <div className={`${styles.wrapper} container`}>
+      <Container className={styles.wrapper}>
         <img className={styles.logo} width={55} height={55} src={logo} alt="" />
         <h1 className={styles.title}>{isLogin ? "Login" : "Registration"}</h1>
         <form key={mode} className={styles.form} onSubmit={handleSubmit}>
@@ -147,7 +148,7 @@ export const AuthUser = ({ mode }) => {
         >
           {isLogin ? "Don't have an account?" : "Already registered?"}
         </Link>
-      </div>
+      </Container>
     </section>
   );
 };
