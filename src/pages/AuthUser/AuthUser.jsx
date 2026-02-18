@@ -5,7 +5,6 @@ import * as styles from "./AuthUser.module.css";
 import logo from "/src/assets/images/logo.jpg";
 import { useRegisterUserMutation } from "../../app/api/apiSlice";
 import { addUser, login } from "../../features/auth/authSlice";
-import { saveAuthToStorage, saveUsersToStorage } from "../../utils/authStorage";
 import {
   validateLoginUser,
   validateRegisterUser,
@@ -17,8 +16,8 @@ export const AuthUser = ({ mode }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const users = useSelector((state) => state.auth.users);
-  const isLogin = mode === "login";
 
+  const isLogin = mode === "login";
   const handleRegister = async (formData) => {
     const errorMessage = validateRegisterUser(formData, users);
     if (errorMessage) {
@@ -41,9 +40,6 @@ export const AuthUser = ({ mode }) => {
       };
 
       dispatch(addUser(newUser));
-
-      const updatedUsers = [...users, newUser];
-      saveUsersToStorage(updatedUsers);
       navigate("/login");
     } catch (error) {
       setLocalError("Something went wrong");
@@ -56,8 +52,12 @@ export const AuthUser = ({ mode }) => {
       setLocalError(result.error);
       return;
     }
-    dispatch(login(result.user));
-    saveAuthToStorage(result.user);
+    const currentUser = {
+      id: result.user.id,
+      username: result.user.username,
+      email: result.user.email,
+    };
+    dispatch(login(currentUser));
     navigate("/");
   };
 

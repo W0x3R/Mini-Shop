@@ -1,13 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  getAuthFromStorage,
-  getUsersFromStorage,
-} from "../../utils/authStorage";
 
 const initialState = {
-  users: getUsersFromStorage(),
-  currentUser: getAuthFromStorage(),
-  isAuth: !!getAuthFromStorage(),
+  users: [],
+  currentUser: null,
 };
 
 const authSlice = createSlice({
