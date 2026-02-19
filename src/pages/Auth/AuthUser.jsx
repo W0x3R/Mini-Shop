@@ -4,7 +4,7 @@ import * as styles from "./AuthUser.module.css";
 import logo from "@assets/images/logo.jpg";
 import { useRegisterUserMutation } from "@shared/api";
 import { addUser, login } from "@features/auth/store";
-import { Container } from "@shared/ui";
+import { Container, Text } from "@shared/ui";
 import { LoginForm } from "@components/loginForm";
 import { RegisterForm } from "@components/registerForm";
 
@@ -57,7 +57,9 @@ export const AuthUser = ({ mode }) => {
     <section className={styles.auth}>
       <Container className={styles.wrapper}>
         <img className={styles.logo} width={55} height={55} src={logo} alt="" />
-        <h1 className={styles.title}>{isLogin ? "Login" : "Registration"}</h1>
+        <Text className={styles["form-title"]} variant="h1">
+          {isLogin ? "Login" : "Registration"}
+        </Text>
         {isLogin ? (
           <LoginForm onSubmit={handleLoginSubmit} />
         ) : (
