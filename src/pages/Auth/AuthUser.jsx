@@ -6,6 +6,7 @@ import { addUser, login } from "@features/auth/store";
 import { Container, Text, Logo } from "@shared/ui";
 import { LoginForm } from "@components/loginForm";
 import { RegisterForm } from "@components/registerForm";
+import { notifySuccess } from "@shared/lib";
 
 export const AuthUser = ({ mode }) => {
   const [registerUser, { isLoading }] = useRegisterUserMutation();
@@ -31,6 +32,7 @@ export const AuthUser = ({ mode }) => {
     };
 
     dispatch(addUser(newUser));
+    notifySuccess("Register success");
     navigate("/login");
   };
 
@@ -49,6 +51,7 @@ export const AuthUser = ({ mode }) => {
     };
 
     dispatch(login(currentUser));
+    notifySuccess("Successfully logged in");
     navigate("/");
   };
 
