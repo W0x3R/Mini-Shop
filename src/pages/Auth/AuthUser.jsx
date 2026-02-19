@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import * as styles from "./AuthUser.module.css";
-import logo from "@assets/images/logo.jpg";
 import { useRegisterUserMutation } from "@shared/api";
 import { addUser, login } from "@features/auth/store";
-import { Container, Text } from "@shared/ui";
+import { Container, Text, Logo } from "@shared/ui";
 import { LoginForm } from "@components/loginForm";
 import { RegisterForm } from "@components/registerForm";
 
@@ -56,7 +55,7 @@ export const AuthUser = ({ mode }) => {
   return (
     <section className={styles.auth}>
       <Container className={styles.wrapper}>
-        <img className={styles.logo} width={55} height={55} src={logo} alt="" />
+        <Logo className={styles["form-logo"]} width={55} height={55} />
         <Text className={styles["form-title"]} variant="h1">
           {isLogin ? "Login" : "Registration"}
         </Text>

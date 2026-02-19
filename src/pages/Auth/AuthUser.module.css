@@ -18,8 +18,10 @@
   background-color: var(--white-color);
 }
 
-.logo {
-  margin-bottom: 40px;
+.form-logo {
+  margin-bottom: 25px;
+  width: 55px;
+  height: 55px;
 }
 
 .form-title {

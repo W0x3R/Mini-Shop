@@ -3,3 +3,4 @@ export { Button } from "./Button";
 export { Error } from "./Error";
 export { Link } from "./Link";
 export { Text } from "./Text";
+export { Logo } from "./Logo";
