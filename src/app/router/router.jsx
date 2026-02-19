@@ -1,11 +1,11 @@
 import { createBrowserRouter, Navigate } from "react-router";
-import { Layout } from "@layout/Layout";
-import { AuthUser } from "@components/auth-user";
+import { MainLayout } from "@layout/MainLayout";
+import { AuthUser } from "@pages/Auth";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <MainLayout />,
     children: [
       {
         index: true,

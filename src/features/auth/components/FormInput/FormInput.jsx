@@ -1,5 +1,5 @@
 import * as styles from "./FormInput.module.css";
-import { AuthError } from "@components/auth-error";
+import { AuthError } from "@features/auth/components";
 
 export const FormInput = ({
   labelText,

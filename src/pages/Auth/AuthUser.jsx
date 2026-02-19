@@ -2,11 +2,11 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import * as styles from "./AuthUser.module.css";
 import logo from "@assets/images/logo.jpg";
-import { useRegisterUserMutation } from "@app/api";
-import { addUser, login } from "@features/auth";
-import { Container } from "@components/container";
-import { LoginForm } from "@components/login-form";
-import { RegisterForm } from "@components/register-form";
+import { useRegisterUserMutation } from "@shared/api";
+import { addUser, login } from "@features/auth/store";
+import { Container } from "@shared/ui";
+import { LoginForm } from "@components/loginForm";
+import { RegisterForm } from "@components/registerForm";
 
 export const AuthUser = ({ mode }) => {
   const [registerUser, { isLoading }] = useRegisterUserMutation();

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 
-export const Layout = () => {
+export const MainLayout = () => {
   return (
     <>
       <header></header>
