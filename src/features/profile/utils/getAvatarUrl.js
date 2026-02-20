@@ -1,8 +1,5 @@
-import { truncate } from "@shared/utils";
-
 export const getAvatarUrl = (username, size = 40) => {
-  const shortUsername = truncate(username, 6, "");
-  const encoded = encodeURIComponent(shortUsername);
+  const encoded = encodeURIComponent(username);
 
-  return `https://placehold.co/${size}x${size}?font=oswald&text=${encoded}`;
+  return `https://ui-avatars.com/api/?name=${encoded}&size${size}&rounded=true&background=random`;
 };
