@@ -17,6 +17,10 @@
   position: relative;
   padding-block: 15px;
 
+  &.active::after {
+    transform: scale(1);
+  }
+
   &::after {
     content: "";
     position: absolute;

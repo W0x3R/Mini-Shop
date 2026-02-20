@@ -6,12 +6,22 @@ export const HeaderNav = () => {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li>
-          <NavLink className={styles["list-link"]} to="/about">
+          <NavLink
+            className={({ isActive }) =>
+              `${styles["list-link"]} ${isActive ? styles.active : ""}`
+            }
+            to="/"
+          >
             About
           </NavLink>
         </li>
         <li>
-          <NavLink className={styles["list-link"]} to="/products">
+          <NavLink
+            className={({ isActive }) =>
+              `${styles["list-link"]} ${isActive ? styles.active : ""}`
+            }
+            to="/products"
+          >
             Products
           </NavLink>
         </li>
