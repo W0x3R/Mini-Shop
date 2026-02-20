@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import { Layout } from "@layout/Layout";
 import { AuthUser } from "@pages/Auth";
 import { PublicRoute, PrivateRoute } from "@app/providers";
+import { About } from "@pages/About";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +24,12 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Layout />,
-        children: [],
+        children: [
+          {
+            index: true,
+            element: <About />,
+          },
+        ],
       },
     ],
   },
