@@ -2,6 +2,7 @@ import { ProfileButton, ProfileDropdown } from "@features/profile/components/";
 import * as styles from "./Profile.module.css";
 import { useEffect, useRef, useState } from "react";
 import { useCurrentUser, useLogout } from "@features/auth/hooks";
+import { notifySuccess } from "@shared/lib/notify";
 
 export const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +16,7 @@ export const Profile = () => {
 
   const handleLogout = () => {
     logout();
+    notifySuccess("You have successfully logged out");
     setIsOpen(false);
   };
 
