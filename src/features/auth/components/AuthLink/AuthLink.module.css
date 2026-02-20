@@ -1,5 +1,6 @@
 .auth-link {
   text-align: center;
+  color: var(--primary-link-color);
   @media (hover: hover) {
     &:hover {
       text-decoration: underline;
