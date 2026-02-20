@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
 
 export const useCurrentUser = () => {
-  return useSelector((state) => state.auth?.currentUser) || "";
+  return useSelector((state) => state.auth?.currentUser);
 };
