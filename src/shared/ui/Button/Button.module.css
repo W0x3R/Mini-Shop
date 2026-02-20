@@ -1,11 +1,6 @@
 .button {
-  display: inline-flex;
-  justify-content: center;
-  padding: 8px 10px;
   transition: var(--basic-transition);
-  border-radius: 8px;
   outline: none;
-  font-weight: 500;
 
   &:focus-visible {
     border-color: var(--focus-color);
