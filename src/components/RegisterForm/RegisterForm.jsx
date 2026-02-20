@@ -65,7 +65,7 @@ export const RegisterForm = ({ onSubmit, isLoading }) => {
         </AuthError>
       )}
       <FormButton disabled={isLoading}>
-        {isLoading ? "Loading..." : "Login"}
+        {isLoading ? "Loading..." : "Register"}
       </FormButton>
       <AuthLink href="/login">{"Already registered?"}</AuthLink>
     </form>
