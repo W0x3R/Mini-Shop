@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
-import { Header } from "@layout/Header";
+import { Header } from "@features/header/components";
 
-export const MainLayout = () => {
+export const Layout = () => {
   return (
     <>
       <Header></Header>

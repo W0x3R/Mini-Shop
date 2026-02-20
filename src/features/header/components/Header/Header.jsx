@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 import * as styles from "./Header.module.css";
 import { Container } from "@shared/ui/Сontainer";
 import { Profile } from "@features/profile/components";
-import { Cart } from "@features/cart/components/Cart";
+import { Cart } from "@features/cart/components";
 
 export const Header = () => {
   return (

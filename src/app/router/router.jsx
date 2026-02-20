@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router";
-import { MainLayout } from "@layout/MainLayout";
+import { Layout } from "@layout/Layout";
 import { AuthUser } from "@pages/Auth";
 import { PublicRoute, PrivateRoute } from "@app/providers";
 
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <MainLayout />,
+        element: <Layout />,
         children: [],
       },
     ],

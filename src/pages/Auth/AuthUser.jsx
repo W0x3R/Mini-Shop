@@ -4,8 +4,7 @@ import * as styles from "./AuthUser.module.css";
 import { useRegisterUserMutation } from "@shared/api";
 import { addUser, login } from "@features/auth/store";
 import { Container, Text, Logo } from "@shared/ui";
-import { LoginForm } from "@components/loginForm";
-import { RegisterForm } from "@components/registerForm";
+import { LoginForm, RegisterForm } from "@features/auth/components";
 import { notifySuccess } from "@shared/lib";
 
 export const AuthUser = ({ mode }) => {
