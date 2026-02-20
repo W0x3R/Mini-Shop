@@ -8,6 +8,7 @@
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
+  cursor: default;
   transition: var(--basic-transition);
 
   &.show {
