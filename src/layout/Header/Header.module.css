@@ -43,32 +43,3 @@
     transform: scale(1);
   }
 }
-
-.cart-wrapper {
-  position: relative;
-  margin-inline: 40px;
-  padding: 20px;
-  cursor: pointer;
-  border-radius: 15px;
-  transition: var(--basic-transition);
-  @media (hover: hover) {
-    &:hover {
-      background-color: #80808029;
-    }
-  }
-}
-
-.cart-count {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  background-color: #1f883d;
-  border-radius: 50%;
-  width: 17px;
-  height: 17px;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}

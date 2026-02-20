@@ -1,8 +1,8 @@
-import { Link, NavLink } from "react-router";
+import { NavLink } from "react-router";
 import * as styles from "./Header.module.css";
-import cartLogo from "@assets/images/cart.svg";
 import { Container } from "@shared/ui/Сontainer";
 import { Profile } from "@features/profile/components";
+import { Cart } from "@features/cart/components/Cart";
 
 export const Header = () => {
   return (
@@ -16,12 +16,7 @@ export const Header = () => {
               </NavLink>
             </li>
           </ul>
-          <div className={styles["cart-wrapper"]}>
-            <Link to="/cart">
-              <img src={cartLogo} width={30} height={30} />
-            </Link>
-            <span className={styles["cart-count"]}>0</span>
-          </div>
+          <Cart />
           <Profile />
         </nav>
       </Container>
