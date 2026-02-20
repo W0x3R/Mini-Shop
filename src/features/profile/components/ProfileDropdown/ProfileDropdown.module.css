@@ -3,13 +3,14 @@
   min-width: 200px;
   box-shadow: 0 0 7px 0px #6164619e;
   top: calc(100% + 10px);
-  right: 15px;
+  right: -50%;
   padding-block: 10px;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
   cursor: default;
   transition: var(--basic-transition);
+  background-color: var(--white-color);
 
   &.show {
     opacity: 1;
