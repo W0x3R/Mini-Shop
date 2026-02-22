@@ -1,46 +1,34 @@
+import clsx from "clsx";
 import * as styles from "./Products.module.css";
-import { Container, Text } from "@shared/ui";
-import { useGetProductsQuery } from "@shared/api";
-import { ProductCards } from "@features/products/components";
-import { useEffect, useState } from "react";
-import { Button } from "@shared/ui";
+import { Container, Text, Button, Spinner } from "@shared/ui";
+import { ProductCards, ProductsError } from "@features/products/components";
+import { useProductsPagination } from "@features/products/hooks";
 
 export const Products = () => {
-  const [page, setPage] = useState(0);
-  const [allProducts, setAllProducts] = useState([]);
-  const { data, isLoading, isError } = useGetProductsQuery({
-    limit: 10,
-    skip: page * 10,
-  });
+  const { products, isLoading, isFetching, isError, showMore, hasMore } =
+    useProductsPagination(10);
 
-  const handleShowMore = () => {
-    setPage((prev) => prev + 1);
-  };
-
-  useEffect(() => {
-    if (!data?.products) return;
-
-    if (page === 0) {
-      setAllProducts(data.products);
-    } else {
-      setAllProducts((prev) => [...prev, ...data.products]);
-    }
-  }, [data]);
+  const isInitialLoading = isLoading && products.length === 0;
 
   return (
     <section className={styles.products}>
       <Container className={styles.wrapper}>
-        <Text className={styles.title} variant="h1">
+        <Text
+          className={clsx(styles.title, isError ? styles.error : "")}
+          variant="h1"
+        >
           Our Products
         </Text>
-        <ProductCards products={allProducts} />
-        {data?.total > allProducts.length && (
+        {isInitialLoading && <Spinner size={80} />}
+        {!isInitialLoading && isError && <ProductsError />}
+        {!isInitialLoading && !isError && <ProductCards products={products} />}
+        {products.length > 0 && hasMore && !isError && (
           <Button
             className={styles["showmore-btn"]}
-            onClick={handleShowMore}
-            disabled={isLoading}
+            onClick={showMore}
+            disabled={isFetching}
           >
-            Show More
+            {isFetching ? "Loading..." : "Show More"}
           </Button>
         )}
       </Container>

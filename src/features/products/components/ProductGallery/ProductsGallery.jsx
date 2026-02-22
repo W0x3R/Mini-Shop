@@ -1,5 +1,4 @@
-import { useCarousel } from "@shared/lib";
-import { useFancybox } from "@shared/lib";
+import { useCarousel, useFancybox } from "@shared/lib";
 
 export const ProductGallery = ({ images = [], title = "" }) => {
   const [carouselRef] = useCarousel({
