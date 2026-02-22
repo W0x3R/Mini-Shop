@@ -1,6 +1,6 @@
 import * as styles from "./ProductCard.module.css";
-import ratingLogo from "@assets/images/ratingLogo.svg";
-import reviewLogo from "@assets/images/reviewLogo.svg";
+import ratingLogo from "@assets/images/ratingLogo.svg?url";
+import reviewLogo from "@assets/images/reviewLogo.svg?url";
 import { Text } from "@shared/ui";
 import { ProductGallery } from "@features/products/components";
 

@@ -1,4 +1,4 @@
-import profileArrow from "@assets/images/profile-arrow.svg";
+import profileArrow from "@assets/images/profile-arrow.svg?url";
 import * as styles from "./ProfileButton.module.css";
 import { Button } from "@shared/ui/Button";
 import { getAvatarUrl } from "@features/profile/utils";

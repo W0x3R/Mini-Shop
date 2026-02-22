@@ -38,6 +38,7 @@
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.0",
     "@babel/preset-react": "^7.28.5",
+    "@svgr/webpack": "^8.1.0",
     "babel-loader": "^10.0.0",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^7.1.4",

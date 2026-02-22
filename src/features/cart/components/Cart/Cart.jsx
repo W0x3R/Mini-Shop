@@ -1,4 +1,4 @@
-import cartLogo from "@assets/images/cart.svg";
+import cartLogo from "@assets/images/cart.svg?url";
 import * as styles from "./Cart.module.css";
 import { Link } from "@shared/ui/Link";
 

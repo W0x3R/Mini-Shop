@@ -75,8 +75,30 @@ module.exports = (env, argv) => {
 
         // Images
         {
-          test: /\.(png|jpg|jpeg|gif|svg)$/i,
+          test: /\.(png|jpg|jpeg|gif)$/i,
           type: "asset",
+        },
+        {
+          test: /\.svg$/i,
+          oneOf: [
+            {
+              resourceQuery: /url/, // ?url
+              type: "asset/resource",
+              generator: {
+                filename: "assets/[name].[hash][ext]",
+              },
+            },
+            {
+              issuer: /\.[jt]sx?$/,
+              use: ["@svgr/webpack"],
+            },
+            {
+              type: "asset/resource",
+              generator: {
+                filename: "assets/[name].[hash][ext]",
+              },
+            },
+          ],
         },
 
         // Fonts
