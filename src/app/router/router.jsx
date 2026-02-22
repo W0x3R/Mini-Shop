@@ -3,6 +3,7 @@ import { Layout } from "@layout/Layout";
 import { AuthUser } from "@pages/Auth";
 import { PublicRoute, PrivateRoute } from "@app/providers";
 import { About } from "@pages/About";
+import { Products } from "@pages/Products";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
           {
             index: true,
             element: <About />,
+          },
+          {
+            element: <Products />,
+            path: "/products",
           },
         ],
       },
