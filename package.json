@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/W0x3R/Mini-Shop#readme",
   "dependencies": {
+    "@fancyapps/ui": "^6.1.11",
     "@hookform/resolvers": "^5.2.2",
     "@reduxjs/toolkit": "^2.11.2",
     "clsx": "^2.1.1",

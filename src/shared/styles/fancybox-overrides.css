@@ -1,0 +1,16 @@
+.f-carousel.has-arrows .f-button.is-arrow,
+.fancybox__carousel.has-arrows .f-button.is-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--white-color);
+  color: var(--black-color);
+  box-shadow: var(--basic-shadow);
+  transition: var(--basic-transition);
+}
+
+.f-carousel.has-arrows .f-button.is-arrow:hover,
+.fancybox__carousel.has-arrows .f-button.is-arrow:hover {
+  background-color: var(--primary-green-color);
+  color: var(--white-color);
+}
