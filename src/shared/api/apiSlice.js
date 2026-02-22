@@ -13,7 +13,11 @@ export const apiSlice = createApi({
         body: user,
       }),
     }),
+    getProducts: builder.query({
+      query: ({ limit = 10, skip = 0 }) =>
+        `/products?limit=${limit}&skip=${skip}`,
+    }),
   }),
 });
 
-export const { useRegisterUserMutation } = apiSlice;
+export const { useRegisterUserMutation, useGetProductsQuery } = apiSlice;

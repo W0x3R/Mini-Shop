@@ -1,1 +1,5 @@
-export { apiSlice, useRegisterUserMutation } from "./apiSlice";
+export {
+  apiSlice,
+  useRegisterUserMutation,
+  useGetProductsQuery,
+} from "./apiSlice";
