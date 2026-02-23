@@ -20,11 +20,10 @@ export const AuthUser = ({ mode }) => {
     );
 
     if (isUserAlreadyExist) return { type: "USER_EXISTS" };
-
     const createdUser = await registerUser(formData).unwrap();
 
     const newUser = {
-      id: createdUser.id,
+      id: crypto.randomUUID(),
       username: createdUser.username,
       email: createdUser.email,
       password: createdUser.password,
