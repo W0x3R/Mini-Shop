@@ -6,6 +6,7 @@ import cartLogo from "@assets/images/cart.svg?url";
 import { Text, Button } from "@shared/ui";
 import { ProductGallery } from "@features/products/components";
 import { addToCart } from "@features/cart/store";
+import { notifySuccess } from "@shared/lib";
 
 export const ProductCard = ({ product }) => {
   const {
@@ -27,6 +28,7 @@ export const ProductCard = ({ product }) => {
         product,
       }),
     );
+    notifySuccess("Product added to cart");
   };
 
   return (
