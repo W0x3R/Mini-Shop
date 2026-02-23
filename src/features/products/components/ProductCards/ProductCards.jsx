@@ -5,18 +5,7 @@ export const ProductCards = ({ products }) => {
   return (
     <div className={styles.wrapper}>
       {products?.map((product) => {
-        return (
-          <ProductCard
-            key={product.id}
-            id={product.id}
-            title={product.title}
-            description={product.description}
-            price={product.price}
-            rating={product.rating}
-            reviewsLength={product.reviews.length}
-            images={product.images}
-          />
-        );
+        return <ProductCard key={product.id} product={product} />;
       })}
     </div>
   );
