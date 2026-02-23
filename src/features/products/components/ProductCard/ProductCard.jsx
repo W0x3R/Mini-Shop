@@ -1,7 +1,8 @@
 import * as styles from "./ProductCard.module.css";
 import ratingLogo from "@assets/images/ratingLogo.svg?url";
 import reviewLogo from "@assets/images/reviewLogo.svg?url";
-import { Text } from "@shared/ui";
+import cartLogo from "@assets/images/cart.svg?url";
+import { Text, Button } from "@shared/ui";
 import { ProductGallery } from "@features/products/components";
 
 export const ProductCard = ({
@@ -35,6 +36,15 @@ export const ProductCard = ({
           <span>{reviewsLength} reviews</span>
         </Text>
       </div>
+      <Button className={styles["add-to-cart-btn"]} title="Add to cart">
+        <img
+          className={styles["cart-logo"]}
+          src={cartLogo}
+          width={26}
+          height={26}
+          alt="Add to cart logo"
+        />
+      </Button>
     </article>
   );
 };
