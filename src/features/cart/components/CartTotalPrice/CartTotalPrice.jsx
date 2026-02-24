@@ -11,6 +11,10 @@ export const CartTotalPrice = () => {
   const { animate, handleAnimationEnd } =
     useCartChangesAnimation(productsTotalPrice);
 
+  if (!productsTotalPrice) {
+    return null;
+  }
+
   return (
     <div className={styles.wrapper}>
       <Text className={styles.title} variant="h3">

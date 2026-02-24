@@ -12,3 +12,23 @@
     animation: global(bump) 0.25s ease;
   }
 }
+
+.cart-empty-wrapper {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.cart-empty-message {
+  margin-bottom: 8px;
+}
+
+.cart-empty-link {
+  color: var(--primary-link-color);
+
+  &:hover {
+    @media (hover: hover) {
+      text-decoration: underline;
+    }
+  }
+}
