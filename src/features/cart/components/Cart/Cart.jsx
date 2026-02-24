@@ -14,8 +14,8 @@ export const Cart = () => {
 
   return (
     <div className={styles["cart-wrapper"]}>
-      <Link to="/cart">
-        <img src={cartLogo} width={30} height={30} />
+      <Link className={styles["cart-link"]} to="/cart">
+        <img src={cartLogo} width={30} height={30} alt="Open user cart" />
       </Link>
       <span
         onAnimationEnd={handleAnimationEnd}
