@@ -3,20 +3,13 @@ import { Text } from "@shared/ui";
 import { selectCartItemsCount } from "@features/cart/store";
 import { useSelector } from "react-redux";
 import * as styles from "./CartHeading.module.css";
-import { useEffect, useState } from "react";
+import { useCartChangesAnimation } from "@features/cart/hooks";
 
 export const CartHeading = () => {
   const productsCount = useSelector(selectCartItemsCount);
 
-  const [animate, setAnimate] = useState(false);
-
-  const handleAnimationEnd = () => {
-    setAnimate(false);
-  };
-
-  useEffect(() => {
-    setAnimate(true);
-  }, [productsCount]);
+  const { animate, handleAnimationEnd } =
+    useCartChangesAnimation(productsCount);
 
   const countVariant = productsCount > 1 ? "items" : "item";
   return (

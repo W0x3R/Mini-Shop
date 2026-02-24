@@ -5,8 +5,8 @@ import { incrementQuantity, decrementQuantity } from "@features/cart/store";
 import { useCurrentUser } from "@features/auth/hooks";
 import trashLogo from "@assets/images/trashLogo.svg?url";
 import clsx from "clsx";
-import { useEffect, useState } from "react";
 import { notifySuccess } from "../../../../shared/lib";
+import { useCartChangesAnimation } from "@features/cart/hooks";
 
 export const CartProduct = ({ userProduct, quantity }) => {
   const { id, title, thumbnail, price, shippingInformation } = userProduct;
@@ -15,15 +15,7 @@ export const CartProduct = ({ userProduct, quantity }) => {
   const currentUser = useCurrentUser();
   const userId = currentUser?.id;
   const totalPrice = Number(price * quantity).toFixed(2);
-  const [animate, setAnimate] = useState(false);
-
-  const handleAnimationEnd = () => {
-    setAnimate(false);
-  };
-
-  useEffect(() => {
-    setAnimate(true);
-  }, [quantity]);
+  const { animate, handleAnimationEnd } = useCartChangesAnimation(totalPrice);
 
   const productPayload = { userId, productId: id };
 
