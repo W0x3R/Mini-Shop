@@ -1,5 +1,13 @@
-import cartReducer, { addToCart } from "./cartSlice";
+import cartReducer, {
+  addToCart,
+  incrementQuantity,
+  decrementQuantity,
+} from "./cartSlice";
 
-export { addToCart };
+export { addToCart, incrementQuantity, decrementQuantity };
 export default cartReducer;
-export { selectCurrentUserCartItems, selectCartItemsCount } from "./selectors";
+export {
+  selectCurrentUserCartItems,
+  selectCartItemsCount,
+  selectCartTotalPrice,
+} from "./selectors";
