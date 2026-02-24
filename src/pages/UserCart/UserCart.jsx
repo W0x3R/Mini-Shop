@@ -6,7 +6,7 @@ import {
   CartHeading,
 } from "@features/cart/components";
 
-export const UserCart = () => {
+export default function UserCart() {
   return (
     <section className={styles["user-cart"]}>
       <Container className={styles.wrapper}>
@@ -16,4 +16,4 @@ export const UserCart = () => {
       </Container>
     </section>
   );
-};
+}

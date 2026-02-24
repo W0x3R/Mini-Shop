@@ -1,7 +1,12 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router";
 import { Layout } from "@layout/Layout";
-import { AuthUser, UserCart, Products, About } from "@pages";
 import { PublicRoute, PrivateRoute } from "@app/providers";
+
+const AuthUser = lazy(() => import("@pages/Auth"));
+const UserCart = lazy(() => import("@pages/UserCart"));
+const Products = lazy(() => import("@pages/Products"));
+const About = lazy(() => import("@pages/About"));
 
 export const router = createBrowserRouter([
   {

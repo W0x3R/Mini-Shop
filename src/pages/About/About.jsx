@@ -2,7 +2,7 @@ import customerImg from "@assets/images/customerImg.png?url";
 import * as styles from "./About.module.css";
 import { Text, Link, Container } from "@shared/ui";
 
-export const About = () => {
+export default function About() {
   return (
     <section className={styles.about}>
       <Container className={styles.wrapper}>
@@ -44,4 +44,4 @@ export const About = () => {
       </Container>
     </section>
   );
-};
+}

@@ -4,7 +4,7 @@ import { Container, Text, Button, Spinner } from "@shared/ui";
 import { ProductCards, ProductsError } from "@features/products/components";
 import { useProductsPagination } from "@features/products/hooks";
 
-export const Products = () => {
+export default function Products() {
   const { products, isLoading, isFetching, isError, showMore, hasMore } =
     useProductsPagination(10);
 
@@ -34,4 +34,4 @@ export const Products = () => {
       </Container>
     </section>
   );
-};
+}

@@ -7,7 +7,7 @@ import { Container, Text, Logo } from "@shared/ui";
 import { LoginForm, RegisterForm } from "@features/auth/components";
 import { notifySuccess } from "@shared/lib";
 
-export const AuthUser = ({ mode }) => {
+export default function AuthUser({ mode }) {
   const [registerUser, { isLoading }] = useRegisterUserMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -68,4 +68,4 @@ export const AuthUser = ({ mode }) => {
       </Container>
     </section>
   );
-};
+}
