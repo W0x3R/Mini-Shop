@@ -4,6 +4,7 @@ import { AuthUser } from "@pages/Auth";
 import { PublicRoute, PrivateRoute } from "@app/providers";
 import { About } from "@pages/About";
 import { Products } from "@pages/Products";
+import { UserCart } from "@pages/UserCart";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
           {
             element: <Products />,
             path: "/products",
+          },
+          {
+            element: <UserCart />,
+            path: "/cart",
           },
         ],
       },
