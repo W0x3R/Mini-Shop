@@ -1,8 +1,8 @@
-import clsx from "clsx";
-import { Text } from "@shared/ui";
-import { selectCartItemsCount } from "@features/cart/store";
 import { useSelector } from "react-redux";
+import clsx from "clsx";
 import * as styles from "./CartHeading.module.css";
+import { selectCartItemsCount } from "@features/cart/store";
+import { Text } from "@shared/ui";
 import { useCartChangesAnimation } from "@features/cart/hooks";
 
 export const CartHeading = () => {

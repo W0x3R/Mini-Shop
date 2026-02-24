@@ -1,8 +1,8 @@
-import { ProfileButton, ProfileDropdown } from "@features/profile/components/";
-import * as styles from "./Profile.module.css";
 import { useEffect, useRef, useState } from "react";
+import * as styles from "./Profile.module.css";
+import { ProfileButton, ProfileDropdown } from "@features/profile/components";
 import { useCurrentUser, useLogout } from "@features/auth/hooks";
-import { notifySuccess } from "@shared/lib/notify";
+import { notifySuccess } from "@shared/lib";
 
 export const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);

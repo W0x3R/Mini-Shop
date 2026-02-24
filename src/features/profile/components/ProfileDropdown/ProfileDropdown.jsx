@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import * as styles from "./ProfileDropdown.module.css";
-import { Link } from "@shared/ui/Link";
+import { Link } from "@shared/ui";
 
 export const ProfileDropdown = ({ isOpen, username, email, onLogout }) => {
   return (
@@ -12,9 +12,9 @@ export const ProfileDropdown = ({ isOpen, username, email, onLogout }) => {
         <p className={styles["profile-dropdown-email"]}>{email}</p>
       </div>
       <Link
+        className={styles["profile-dropdown-logout"]}
         onClick={onLogout}
         href="/login"
-        className={styles["profile-dropdown-logout"]}
       >
         Logout
       </Link>

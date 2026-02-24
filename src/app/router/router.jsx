@@ -1,10 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { Layout } from "@layout/Layout";
-import { AuthUser } from "@pages/Auth";
+import { AuthUser, UserCart, Products, About } from "@pages";
 import { PublicRoute, PrivateRoute } from "@app/providers";
-import { About } from "@pages/About";
-import { Products } from "@pages/Products";
-import { UserCart } from "@pages/UserCart";
 
 export const router = createBrowserRouter([
   {

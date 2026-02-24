@@ -1,7 +1,6 @@
-import { Container } from "@shared/ui";
-import customerImg from "@assets/images/customerImg.png";
+import customerImg from "@assets/images/customerImg.png?url";
 import * as styles from "./About.module.css";
-import { Text, Link } from "@shared/ui";
+import { Text, Link, Container } from "@shared/ui";
 
 export const About = () => {
   return (

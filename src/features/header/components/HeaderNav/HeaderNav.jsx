@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { NavLink } from "react-router";
 import * as styles from "./HeaderNav.module.css";
 
@@ -8,7 +9,7 @@ export const HeaderNav = () => {
         <li>
           <NavLink
             className={({ isActive }) =>
-              `${styles["list-link"]} ${isActive ? styles.active : ""}`
+              clsx(styles["list-link"], isActive && styles.active)
             }
             to="/"
           >
@@ -18,7 +19,7 @@ export const HeaderNav = () => {
         <li>
           <NavLink
             className={({ isActive }) =>
-              `${styles["list-link"]} ${isActive ? styles.active : ""}`
+              clsx(styles["list-link"], isActive && styles.active)
             }
             to="/products"
           >

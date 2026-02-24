@@ -1,6 +1,6 @@
+import { useSelector } from "react-redux";
 import { CartProduct } from "@features/cart/components";
 import { selectCurrentUserCartItems } from "@features/cart/store";
-import { useSelector } from "react-redux";
 
 export const CartProducts = () => {
   const currentUserProducts = useSelector(selectCurrentUserCartItems);
