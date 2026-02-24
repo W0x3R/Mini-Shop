@@ -11,3 +11,10 @@ body {
   letter-spacing: 0;
   font-family: var(--primary-font-family);
 }
+
+a,
+button {
+  &:focus-visible {
+    outline: 1px solid var(--black-color);
+  }
+}

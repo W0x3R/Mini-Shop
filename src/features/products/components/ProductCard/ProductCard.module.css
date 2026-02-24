@@ -63,8 +63,11 @@
   bottom: 4px;
   right: 10px;
   padding: 8px;
+  max-width: 42px;
+  max-height: 42px;
   border-radius: 10px;
   transition: var(--basic-transition);
+
   @media (hover: hover) {
     &:hover {
       background-color: #80808029;

@@ -15,6 +15,7 @@ export const ProfileDropdown = ({ isOpen, username, email, onLogout }) => {
         className={styles["profile-dropdown-logout"]}
         onClick={onLogout}
         href="/login"
+        tabIndex={isOpen ? 0 : -1}
       >
         Logout
       </Link>
