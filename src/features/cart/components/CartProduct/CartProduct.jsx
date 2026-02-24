@@ -3,7 +3,11 @@ import clsx from "clsx";
 import trashLogo from "@assets/images/trashLogo.svg?url";
 import * as styles from "./CartProduct.module.css";
 import { Text, Button } from "@shared/ui";
-import { incrementQuantity, decrementQuantity } from "@features/cart/store";
+import {
+  incrementQuantity,
+  decrementQuantity,
+  removeFromCart,
+} from "@features/cart/store";
 import { useCurrentUser } from "@features/auth/hooks";
 import { notifySuccess } from "@shared/lib";
 import { useCartChangesAnimation } from "@features/cart/hooks";
@@ -29,6 +33,11 @@ export const CartProduct = ({ userProduct, quantity }) => {
     notifySuccess("Product removed from cart");
   };
 
+  const handleRemoveProduct = () => {
+    dispatch(removeFromCart(productPayload));
+    notifySuccess("Product removed from cart");
+  };
+
   return (
     <article className={styles.wrapper}>
       <img
@@ -49,6 +58,7 @@ export const CartProduct = ({ userProduct, quantity }) => {
         <Button
           className={styles["delete-product-btn"]}
           title="Delete product from cart"
+          onClick={handleRemoveProduct}
         >
           <img
             className={styles["trash-logo"]}

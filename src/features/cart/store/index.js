@@ -2,9 +2,10 @@ import cartReducer, {
   addToCart,
   incrementQuantity,
   decrementQuantity,
+  removeFromCart,
 } from "./cartSlice";
 
-export { addToCart, incrementQuantity, decrementQuantity };
+export { addToCart, incrementQuantity, decrementQuantity, removeFromCart };
 export default cartReducer;
 export {
   selectCurrentUserCartItems,
