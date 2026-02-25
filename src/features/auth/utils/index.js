@@ -1,1 +1,1 @@
-export { registerSchema, loginSchema } from "./validationSchemas";
+export { loginSchema, registerSchema } from "./validationSchemas";

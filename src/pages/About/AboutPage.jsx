@@ -1,11 +1,14 @@
 import customerImg from "@assets/images/customerImg.png?url";
-import * as styles from "./About.module.css";
-import { Text, Link, Container } from "@shared/ui";
+import { Link } from "@shared/ui/Link";
+import { Text } from "@shared/ui/Text";
+import { Wrapper } from "@shared/ui/Wrapper";
 
-export default function About() {
+import * as styles from "./AboutPage.module.css";
+
+export default function AboutPage() {
   return (
     <section className={styles.about}>
-      <Container className={styles.wrapper}>
+      <Wrapper className={styles.wrapper}>
         <Text className={styles.title} variant="h1">
           About Our Store
         </Text>
@@ -41,7 +44,7 @@ export default function About() {
         <Link className={styles.link} href="/products">
           Shop Now
         </Link>
-      </Container>
+      </Wrapper>
     </section>
   );
 }

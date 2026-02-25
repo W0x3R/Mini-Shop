@@ -1,12 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
-import * as styles from "./ProductCard.module.css";
+import cartLogo from "@assets/images/cart.svg?url";
 import ratingLogo from "@assets/images/ratingLogo.svg?url";
 import reviewLogo from "@assets/images/reviewLogo.svg?url";
-import cartLogo from "@assets/images/cart.svg?url";
-import { Text, Button } from "@shared/ui";
-import { ProductGallery } from "@features/products/components";
 import { addToCart } from "@features/cart/store";
+import { ProductGallery } from "@features/products/components/ProductGallery";
 import { notifySuccess } from "@shared/lib";
+import { Button } from "@shared/ui/Button";
+import { Text } from "@shared/ui/Text";
+import { useDispatch, useSelector } from "react-redux";
+
+import * as styles from "./ProductCard.module.css";
 
 export const ProductCard = ({ product }) => {
   const {
@@ -21,7 +23,7 @@ export const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.auth.currentUser);
 
-  const handleAddToCard = (id) => {
+  const handleAddToCard = () => {
     dispatch(
       addToCart({
         userId: currentUser.id,
@@ -55,7 +57,7 @@ export const ProductCard = ({ product }) => {
       </div>
       <Button
         className={styles["add-to-cart-btn"]}
-        onClick={() => handleAddToCard(id)}
+        onClick={handleAddToCard}
         title="Add to cart"
       >
         <img

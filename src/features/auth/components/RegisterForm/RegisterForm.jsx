@@ -1,29 +1,51 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as formStyles from "@shared/styles/forms.module.css";
+import { AuthLink } from "@features/auth/components/AuthLink";
+import { FormButton } from "@features/auth/components/FormButton";
+import { FormControlError } from "@features/auth/components/FormControlError";
+import { FormInput } from "@features/auth/components/FormInput";
+import { addUser } from "@features/auth/store";
 import { registerSchema } from "@features/auth/utils";
-import {
-  FormInput,
-  AuthError,
-  AuthLink,
-  FormButton,
-} from "@features/auth/components";
+import { useRegisterUserMutation } from "@shared/api";
+import { notifySuccess } from "@shared/lib";
+import * as formStyles from "@shared/styles/forms.module.css";
+import { Form } from "@shared/ui/Form";
+import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
-export const RegisterForm = ({ onSubmit, isLoading }) => {
-  const {
-    register,
-    handleSubmit,
-    setError,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(registerSchema),
-  });
+import { USER_EXISTS } from "../../const";
+
+export const RegisterForm = () => {
+  const [registerUser, { isLoading }] = useRegisterUserMutation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const users = useSelector((state) => state.auth.users);
+  const formRef = useRef(null);
+
+  const handleRegisterSubmit = async (formData) => {
+    const isUserAlreadyExist = users.find(
+      (user) => user.username === formData.username,
+    );
+
+    if (isUserAlreadyExist) return { type: USER_EXISTS };
+    const createdUser = await registerUser(formData).unwrap();
+
+    const newUser = {
+      id: crypto.randomUUID(),
+      username: createdUser.username,
+      email: createdUser.email,
+      password: createdUser.password,
+    };
+
+    dispatch(addUser(newUser));
+    notifySuccess("Register success");
+    navigate("/login");
+  };
 
   const handleFormSubmit = async (data) => {
-    const result = await onSubmit(data);
+    const result = await handleRegisterSubmit(data);
 
-    if (result?.type === "USER_EXISTS") {
-      setError("root", {
+    if (result?.type === USER_EXISTS) {
+      formRef.current.setError("root", {
         type: "manual",
         message: "User already exists",
       });
@@ -31,43 +53,25 @@ export const RegisterForm = ({ onSubmit, isLoading }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)} className={formStyles.form}>
-      <FormInput
-        labelText="Username"
-        name="username"
-        register={register}
-        error={errors.username}
-      />
-      <FormInput
-        labelText="Email"
-        name="email"
-        type="email"
-        register={register}
-        error={errors.email}
-      />
-      <FormInput
-        labelText="Password"
-        name="password"
-        type="password"
-        register={register}
-        error={errors.password}
-      />
+    <Form
+      validationSchema={registerSchema}
+      onSubmit={handleFormSubmit}
+      ref={formRef}
+      className={formStyles.form}
+    >
+      <FormInput labelText="Username" name="username" />
+      <FormInput labelText="Email" name="email" type="email" />
+      <FormInput labelText="Password" name="password" type="password" />
       <FormInput
         labelText="Confirm password"
         name="confirm_password"
         type="password"
-        register={register}
-        error={errors.confirm_password}
       />
-      {errors.root && (
-        <AuthError>
-          <p>{errors.root.message}</p>
-        </AuthError>
-      )}
+      <FormControlError errorName="root" />
       <FormButton disabled={isLoading}>
         {isLoading ? "Loading..." : "Register"}
       </FormButton>
       <AuthLink href="/login">{"Already registered?"}</AuthLink>
-    </form>
+    </Form>
   );
 };

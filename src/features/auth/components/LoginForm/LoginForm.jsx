@@ -1,29 +1,48 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as formStyles from "@shared/styles/forms.module.css";
-import {
-  FormInput,
-  AuthError,
-  AuthLink,
-  FormButton,
-} from "@features/auth/components";
+import { AuthLink } from "@features/auth/components/AuthLink";
+import { FormButton } from "@features/auth/components/FormButton";
+import { FormControlError } from "@features/auth/components/FormControlError";
+import { FormInput } from "@features/auth/components/FormInput";
+import { INVALID_CREDENTIALS } from "@features/auth/const";
+import { login } from "@features/auth/store";
 import { loginSchema } from "@features/auth/utils";
+import { notifySuccess } from "@shared/lib";
+import * as formStyles from "@shared/styles/forms.module.css";
+import { Form } from "@shared/ui/Form";
+import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
-export const LoginForm = ({ onSubmit }) => {
-  const {
-    register,
-    handleSubmit,
-    setError,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(loginSchema),
-  });
+export const LoginForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const users = useSelector((state) => state.auth.users);
 
-  const handleFormSubmit = async (data) => {
-    const result = await onSubmit(data);
+  const formRef = useRef(null);
 
-    if (result?.type === "INVALID_CREDENTIALS") {
-      setError("root", {
+  const handleLoginSubmit = (formData) => {
+    const user = users.find(
+      (user) =>
+        user.username === formData.username &&
+        user.password === formData.password,
+    );
+    if (!user) return { type: INVALID_CREDENTIALS };
+
+    const currentUser = {
+      id: user.id,
+      username: user.username,
+      email: user.email,
+    };
+
+    dispatch(login(currentUser));
+    notifySuccess("Successfully logged in");
+    navigate("/");
+  };
+
+  const handleFormSubmit = (data) => {
+    const result = handleLoginSubmit(data);
+
+    if (result?.type === INVALID_CREDENTIALS) {
+      formRef.current.setError("root", {
         type: "manual",
         message: "Invalid username or password",
       });
@@ -31,27 +50,17 @@ export const LoginForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)} className={formStyles.form}>
-      <FormInput
-        labelText="Username"
-        name="username"
-        register={register}
-        error={errors.username}
-      />
-      <FormInput
-        labelText="Password"
-        name="password"
-        type="password"
-        register={register}
-        error={errors.password}
-      />
-      {errors.root && (
-        <AuthError>
-          <p>{errors.root.message}</p>
-        </AuthError>
-      )}
+    <Form
+      validationSchema={loginSchema}
+      onSubmit={handleFormSubmit}
+      className={formStyles.form}
+      ref={formRef}
+    >
+      <FormInput labelText="Username" name="username" />
+      <FormInput labelText="Password" name="password" type="password" />
+      <FormControlError errorName="root" />
       <FormButton>Login</FormButton>
       <AuthLink href="/register">{"Don't have an account?"}</AuthLink>
-    </form>
+    </Form>
   );
 };

@@ -1,9 +1,11 @@
-import { useSelector } from "react-redux";
-import clsx from "clsx";
-import * as styles from "./CartHeading.module.css";
-import { selectCartItemsCount } from "@features/cart/store";
-import { Text, Link } from "@shared/ui";
 import { useCartChangesAnimation } from "@features/cart/hooks";
+import { selectCartItemsCount } from "@features/cart/store";
+import { Link } from "@shared/ui/Link";
+import { Text } from "@shared/ui/Text";
+import clsx from "clsx";
+import { useSelector } from "react-redux";
+
+import * as styles from "./CartHeading.module.css";
 
 export const CartHeading = () => {
   const productsCount = useSelector(selectCartItemsCount);
@@ -27,7 +29,7 @@ export const CartHeading = () => {
       {!productsCount && (
         <div className={styles["cart-empty-wrapper"]}>
           <Text className={styles["cart-empty-message"]}>
-            You haven't added any products yet.
+            You haven&apos;t added any products yet.
           </Text>
           <Link className={styles["cart-empty-link"]} href="/products">
             Start adding some products!

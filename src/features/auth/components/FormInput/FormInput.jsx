@@ -1,29 +1,19 @@
-import * as styles from "./FormInput.module.css";
-import { AuthError } from "@features/auth/components";
+import { FormControlError } from "@features/auth/components/FormControlError";
+import { useId } from "react";
+import { useFormContext } from "react-hook-form";
 
-export const FormInput = ({
-  labelText,
-  name,
-  type = "text",
-  register,
-  error,
-}) => {
+import * as styles from "./FormInput.module.css";
+
+export const FormInput = ({ labelText, name, type = "text" }) => {
+  const id = useId();
+  const { register } = useFormContext();
   return (
     <>
-      <label htmlFor={name} className={styles.label}>
+      <label htmlFor={id} className={styles.label}>
         {labelText}
       </label>
-      <input
-        id={name}
-        className={styles.input}
-        {...register(name)}
-        type={type}
-      />
-      {error && (
-        <AuthError>
-          <p>{error.message}</p>
-        </AuthError>
-      )}
+      <input id={id} className={styles.input} {...register(name)} type={type} />
+      <FormControlError errorName={name} />
     </>
   );
 };

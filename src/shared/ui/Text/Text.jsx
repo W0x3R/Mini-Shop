@@ -1,4 +1,5 @@
 import clsx from "clsx";
+
 import * as styles from "./Text.module.css";
 
 export const Text = ({ children, className, variant = "p", ...props }) => {

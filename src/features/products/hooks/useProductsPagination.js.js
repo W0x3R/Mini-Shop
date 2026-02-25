@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { useGetProductsQuery } from "@shared/api";
+import { useEffect, useState } from "react";
 
 export const useProductsPagination = (limit) => {
   const [page, setPage] = useState(0);
@@ -17,6 +17,7 @@ export const useProductsPagination = (limit) => {
     } else {
       setAllProducts((prev) => [...prev, ...data.products]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const showMore = () => {

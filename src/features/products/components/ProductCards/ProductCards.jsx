@@ -1,5 +1,6 @@
+import { ProductCard } from "@features/products/components/ProductCard";
+
 import * as styles from "./ProductCards.module.css";
-import { ProductCard } from "@features/products/components";
 
 export const ProductCards = ({ products }) => {
   return (

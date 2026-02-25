@@ -1,5 +1,6 @@
+import { Link } from "@shared/ui/Link";
+
 import * as styles from "./AuthLink.module.css";
-import { Link } from "@shared/ui";
 
 export const AuthLink = ({ children, href }) => {
   return (

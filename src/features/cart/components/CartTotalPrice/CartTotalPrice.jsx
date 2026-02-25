@@ -1,9 +1,10 @@
+import { useCartChangesAnimation } from "@features/cart/hooks";
+import { selectCartTotalPrice } from "@features/cart/store";
+import { Text } from "@shared/ui/Text";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
+
 import * as styles from "./CartTotalPrice.module.css";
-import { selectCartTotalPrice } from "@features/cart/store";
-import { useCartChangesAnimation } from "@features/cart/hooks";
-import { Text } from "@shared/ui";
 
 export const CartTotalPrice = () => {
   const productsTotalPrice = useSelector(selectCartTotalPrice);

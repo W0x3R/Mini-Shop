@@ -1,6 +1,7 @@
+import { Link } from "@shared/ui/Link";
 import clsx from "clsx";
+
 import * as styles from "./ProfileDropdown.module.css";
-import { Link } from "@shared/ui";
 
 export const ProfileDropdown = ({ isOpen, username, email, onLogout }) => {
   return (

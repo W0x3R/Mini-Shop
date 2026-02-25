@@ -1,3 +1,5 @@
+/* Переделать на флексы */
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(4, 360px);

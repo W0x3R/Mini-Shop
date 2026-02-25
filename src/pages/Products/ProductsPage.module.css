@@ -1,0 +1,12 @@
+.products {
+  position: relative;
+  padding-block: 60px 40px;
+  min-height: calc(100vh - 110px);
+  background-color: #8080800a;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

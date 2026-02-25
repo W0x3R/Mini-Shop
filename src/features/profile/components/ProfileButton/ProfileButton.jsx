@@ -1,7 +1,8 @@
 import profileArrow from "@assets/images/profile-arrow.svg?url";
-import * as styles from "./ProfileButton.module.css";
-import { Button } from "@shared/ui";
 import { getAvatarUrl } from "@features/profile/utils";
+import { Button } from "@shared/ui/Button";
+
+import * as styles from "./ProfileButton.module.css";
 
 export const ProfileButton = ({ isOpen, onClick, username }) => {
   return (

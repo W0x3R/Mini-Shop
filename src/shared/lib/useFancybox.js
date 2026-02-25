@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
+import { useEffect, useState } from "react";
 
 export function useFancybox(options = {}) {
   const [root, setRoot] = useState(null);
