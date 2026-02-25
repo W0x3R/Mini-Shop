@@ -1,16 +1,18 @@
-import { useDispatch } from "react-redux";
-import clsx from "clsx";
 import trashLogo from "@assets/images/trashLogo.svg?url";
-import * as styles from "./CartProduct.module.css";
-import { Text, Button } from "@shared/ui";
+import { useCurrentUser } from "@features/auth/hooks";
+import { useCartChangesAnimation } from "@features/cart/hooks";
 import {
-  incrementQuantity,
   decrementQuantity,
+  incrementQuantity,
   removeFromCart,
 } from "@features/cart/store";
-import { useCurrentUser } from "@features/auth/hooks";
 import { notifySuccess } from "@shared/lib";
-import { useCartChangesAnimation } from "@features/cart/hooks";
+import { Button } from "@shared/ui/Button";
+import { Text } from "@shared/ui/Text";
+import clsx from "clsx";
+import { useDispatch } from "react-redux";
+
+import * as styles from "./CartProduct.module.css";
 
 export const CartProduct = ({ userProduct, quantity }) => {
   const { id, title, thumbnail, price, shippingInformation } = userProduct;

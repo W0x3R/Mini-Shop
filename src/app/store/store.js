@@ -1,9 +1,9 @@
+import authReducer from "@features/auth/store";
+import cartReducer from "@features/cart/store";
 import { configureStore } from "@reduxjs/toolkit";
+import { apiSlice } from "@shared/api";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import authReducer from "@features/auth/store";
-import { apiSlice } from "@shared/api";
-import cartReducer from "@features/cart/store";
 
 const authPersistConfig = {
   key: "auth",

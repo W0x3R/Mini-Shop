@@ -1,10 +1,11 @@
-import { useSelector } from "react-redux";
-import clsx from "clsx";
 import cartLogo from "@assets/images/cart.svg?url";
-import * as styles from "./Cart.module.css";
-import { Link } from "@shared/ui";
-import { selectCartItemsCount } from "@features/cart/store";
 import { useCartChangesAnimation } from "@features/cart/hooks";
+import { selectCartItemsCount } from "@features/cart/store";
+import { Link } from "@shared/ui/Link";
+import clsx from "clsx";
+import { useSelector } from "react-redux";
+
+import * as styles from "./Cart.module.css";
 
 export const Cart = () => {
   const productsCount = useSelector(selectCartItemsCount);

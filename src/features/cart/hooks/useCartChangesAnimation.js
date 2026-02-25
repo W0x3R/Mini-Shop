@@ -4,13 +4,14 @@ export const useCartChangesAnimation = (value) => {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    setAnimate(false);
-
     const id = requestAnimationFrame(() => {
       setAnimate(true);
     });
 
-    return () => cancelAnimationFrame(id);
+    return () => {
+      setAnimate(false);
+      cancelAnimationFrame(id);
+    };
   }, [value]);
 
   const handleAnimationEnd = () => {

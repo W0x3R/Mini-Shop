@@ -1,11 +1,12 @@
-import { useRef, useState, useCallback, useEffect } from "react";
+import "@fancyapps/ui/dist/carousel/carousel.arrows.css";
+import "@fancyapps/ui/dist/carousel/carousel.css";
+
 import { Carousel } from "@fancyapps/ui/dist/carousel/";
 import { Arrows } from "@fancyapps/ui/dist/carousel/carousel.arrows.js";
 import { Lazyload } from "@fancyapps/ui/dist/carousel/carousel.lazyload.js";
 import { canUseDOM } from "@fancyapps/ui/dist/utils/canUseDOM.js";
 import { isEqual } from "@fancyapps/ui/dist/utils/isEqual.js";
-import "@fancyapps/ui/dist/carousel/carousel.arrows.css";
-import "@fancyapps/ui/dist/carousel/carousel.css";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export function useCarousel(options = {}) {
   const storedOptions = useRef(options);

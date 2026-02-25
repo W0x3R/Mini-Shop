@@ -1,5 +1,5 @@
-import { Navigate, Outlet } from "react-router";
 import { useCurrentUser } from "@features/auth/hooks";
+import { Navigate, Outlet } from "react-router";
 
 export const PublicRoute = () => {
   const currentUser = useCurrentUser();

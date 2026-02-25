@@ -1,14 +1,14 @@
 import cartReducer, {
   addToCart,
-  incrementQuantity,
   decrementQuantity,
+  incrementQuantity,
   removeFromCart,
 } from "./cartSlice";
 
-export { addToCart, incrementQuantity, decrementQuantity, removeFromCart };
+export { addToCart, decrementQuantity, incrementQuantity, removeFromCart };
 export default cartReducer;
 export {
-  selectCurrentUserCartItems,
   selectCartItemsCount,
   selectCartTotalPrice,
+  selectCurrentUserCartItems,
 } from "./selectors";

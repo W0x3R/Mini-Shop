@@ -1,5 +1,6 @@
-import clsx from "clsx";
 import logo from "@assets/images/logo.jpg";
+import clsx from "clsx";
+
 import * as styles from "./Logo.module.css";
 
 export const Logo = ({ size, className }) => {

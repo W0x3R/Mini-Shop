@@ -1,6 +1,7 @@
 import errorImg from "@assets/images/error.svg?url";
+import { Error } from "@shared/ui/Error";
+
 import * as styles from "./ProductsError.module.css";
-import { Error } from "@shared/ui";
 
 export const ProductsError = () => {
   return (

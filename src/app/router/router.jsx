@@ -1,12 +1,12 @@
+import { Layout } from "@app/Layout";
+import { PrivateRoute, PublicRoute } from "@app/providers";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router";
-import { Layout } from "@layout/Layout";
-import { PublicRoute, PrivateRoute } from "@app/providers";
 
-const AuthUser = lazy(() => import("@pages/Auth"));
-const UserCart = lazy(() => import("@pages/UserCart"));
-const Products = lazy(() => import("@pages/Products"));
-const About = lazy(() => import("@pages/About"));
+const AuthUserPage = lazy(() => import("@pages/Auth"));
+const UserCartPage = lazy(() => import("@pages/UserCart"));
+const ProductsPage = lazy(() => import("@pages/Products"));
+const AboutPage = lazy(() => import("@pages/About"));
 
 export const router = createBrowserRouter([
   {
@@ -14,11 +14,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/login",
-        element: <AuthUser mode="login" />,
+        element: <AuthUserPage mode="login" />,
       },
       {
         path: "/register",
-        element: <AuthUser mode="register" />,
+        element: <AuthUserPage mode="register" />,
       },
     ],
   },
@@ -31,14 +31,14 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <About />,
+            element: <AboutPage />,
           },
           {
-            element: <Products />,
+            element: <ProductsPage />,
             path: "/products",
           },
           {
-            element: <UserCart />,
+            element: <UserCartPage />,
             path: "/cart",
           },
         ],

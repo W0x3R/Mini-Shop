@@ -1,4 +1,5 @@
 import { clsx } from "clsx";
+
 import * as styles from "./Error.module.css";
 
 export const Error = ({ children, className, ...props }) => {

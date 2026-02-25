@@ -1,5 +1,6 @@
+import { Button } from "@shared/ui/Button";
+
 import * as styles from "./FormButton.module.css";
-import { Button } from "@shared/ui";
 
 export const FormButton = ({ children, disabled = false, ...props }) => {
   return (

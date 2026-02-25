@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isDev = argv.mode === "development";
@@ -114,6 +115,11 @@ module.exports = (env, argv) => {
 
     plugins: [
       new CleanWebpackPlugin(),
+      new ESLintPlugin({
+        extensions: ["js", "jsx"],
+        context: path.resolve(__dirname, "src"),
+        failOnError: !isDev,
+      }),
 
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "public/index.html"),
