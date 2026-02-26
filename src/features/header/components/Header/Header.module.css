@@ -8,4 +8,8 @@
   justify-content: flex-end;
   align-items: center;
   height: 110px;
+
+  @media (max-width: 768px) {
+    height: 96px;
+  }
 }
