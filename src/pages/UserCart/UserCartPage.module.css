@@ -13,4 +13,11 @@
   background-color: var(--white-color);
   padding: 22px;
   border-radius: 15px;
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
 }

@@ -39,10 +39,10 @@ export const CartProduct = ({ userProduct, quantity }) => {
         loading="lazy"
       />
       <div className={styles["info-wrapper"]}>
-        <Text className={styles.title} variant="h2">
+        <Text className={styles.title} tag="h2" variant="small-text">
           {title}
         </Text>
-        <Text className={styles.delivery} variant="p">
+        <Text className={styles.delivery} tag="p" variant="small-text">
           {shippingInformation}
         </Text>
         <Button
@@ -65,7 +65,8 @@ export const CartProduct = ({ userProduct, quantity }) => {
         <Text
           className={clsx(styles.count, animate && styles.bump)}
           onAnimationEnd={handleAnimationEnd}
-          variant="p"
+          tag="p"
+          variant="small-text"
         >
           {quantity}
         </Text>
@@ -77,7 +78,8 @@ export const CartProduct = ({ userProduct, quantity }) => {
       <Text
         className={clsx(styles.price, animate && styles.bump)}
         onAnimationEnd={handleAnimationEnd}
-        variant="p"
+        tag="p"
+        variant="small-text"
       >{`${totalPrice} $`}</Text>
     </article>
   );

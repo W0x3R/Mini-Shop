@@ -1,11 +1,9 @@
 .title {
-  font-size: 24px;
   margin-bottom: 8px;
 }
 
 .count {
   color: #001a3499;
-  font-size: 14px;
   margin-bottom: 20px;
 
   &.bump {

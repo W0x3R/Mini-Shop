@@ -16,19 +16,24 @@ export const CartHeading = () => {
   const countVariant = productsCount > 1 ? "items" : "item";
   return (
     <>
-      <Text className={styles.title} variant="h1">
+      <Text className={styles.title} tag="h1" variant="small">
         Shopping Cart
       </Text>
       <Text
         className={clsx(styles.count, animate && styles.bump)}
-        variant="p"
+        tag="p"
+        variant="small-text"
         onAnimationEnd={handleAnimationEnd}
       >
         {`${productsCount} ${countVariant}`}
       </Text>
       {!productsCount && (
         <div className={styles["cart-empty-wrapper"]}>
-          <Text className={styles["cart-empty-message"]}>
+          <Text
+            className={styles["cart-empty-message"]}
+            tag="p"
+            variant="basic-text"
+          >
             You haven&apos;t added any products yet.
           </Text>
           <Link className={styles["cart-empty-link"]} href="/products">

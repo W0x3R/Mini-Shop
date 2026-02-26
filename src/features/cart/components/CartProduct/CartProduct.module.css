@@ -11,23 +11,38 @@
   align-items: flex-start;
   row-gap: 10px;
   flex-basis: 30%;
+
+  @media (max-width: 480px) {
+    row-gap: 5px;
+    flex-basis: 20%;
+  }
 }
 
 .title {
-  font-size: 16px;
   font-weight: 500;
 }
 
 .img {
   display: block;
   width: 150px;
-  height: 150px;
+  height: auto;
   border-radius: 10px;
   box-shadow: var(--basic-shadow);
+
+  @media (max-width: 1024px) {
+    width: 130px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100px;
+  }
+
+  @media (max-width: 480px) {
+    width: 80px;
+  }
 }
 
 .delivery {
-  font-size: 14px;
   color: #001a3499;
 }
 
@@ -41,12 +56,24 @@
       opacity: 1;
     }
   }
+  @media (max-width: 768px) {
+    padding: 10px;
+    border-radius: 10px;
+  }
 }
 
 .trash-logo {
   display: block;
   width: 22px;
-  height: 22px;
+  height: auto;
+
+  @media (max-width: 768px) {
+    width: 20px;
+  }
+
+  @media (max-width: 480px) {
+    width: 18px;
+  }
 }
 
 .count-wrapper {
@@ -54,10 +81,14 @@
   column-gap: 20px;
   align-items: center;
   flex-basis: 20%;
+
+  @media (max-width: 768px) {
+    flex-basis: 15%;
+    column-gap: 15px;
+  }
 }
 
 .count {
-  font-size: 14px;
   font-weight: 600;
 
   &.bump {
@@ -86,6 +117,23 @@
     width: 14px;
     height: 2px;
     background-color: black;
+
+    @media (max-width: 480px) {
+      left: calc(50% - 5px);
+      width: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px;
+    width: 30px;
+    height: 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 6px;
+    width: 26px;
+    height: 26px;
   }
 }
 
@@ -99,12 +147,15 @@
     width: 14px;
     height: 2px;
     background-color: black;
+
+    @media (max-width: 480px) {
+      left: calc(50% - 5px);
+      width: 10px;
+    }
   }
 }
 
 .price {
-  flex-basis: 10%;
-  font-size: 16px;
   font-weight: 500;
   color: var(--primary-green-color);
 

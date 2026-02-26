@@ -18,12 +18,13 @@ export const CartTotalPrice = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Text className={styles.title} variant="h3">
+      <Text className={styles.title} tag="h3" variant="small">
         Total Price:
       </Text>
       <Text
         className={clsx(styles["total-price"], animate && styles.bump)}
-        variant="p"
+        tag="p"
+        variant="small-text"
         onAnimationEnd={handleAnimationEnd}
       >
         {normalizedProductsTotalPrice} $

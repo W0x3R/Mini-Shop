@@ -7,11 +7,11 @@
 }
 
 .title {
-  font-size: 22px;
+  margin-bottom: 2px;
 }
+
 .total-price {
   font-weight: 700;
-  font-size: 18px;
   color: var(--primary-green-color);
 
   &.bump {
