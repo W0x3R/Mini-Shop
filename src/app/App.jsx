@@ -11,7 +11,16 @@ export const App = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Toaster position="bottom-right" expand richColors />
+        <Toaster
+          position="bottom-right"
+          expand
+          toastOptions={{
+            style: {
+              background: "#1f883d",
+              color: "#fff",
+            },
+          }}
+        />
         <Suspense fallback={<Spinner size={80} />}>
           <RouterProvider router={router} />
         </Suspense>
