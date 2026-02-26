@@ -59,13 +59,24 @@ export const RegisterForm = () => {
       ref={formRef}
       className={formStyles.form}
     >
-      <FormInput labelText="Username" name="username" />
-      <FormInput labelText="Email" name="email" type="email" />
-      <FormInput labelText="Password" name="password" type="password" />
+      <FormInput labelText="Username" name="username" autocomplete="username" />
+      <FormInput
+        labelText="Email"
+        name="email"
+        type="email"
+        autocomplete="email"
+      />
+      <FormInput
+        labelText="Password"
+        name="password"
+        type="password"
+        autocomplete="new-password"
+      />
       <FormInput
         labelText="Confirm password"
         name="confirm_password"
         type="password"
+        autocomplete="new-password"
       />
       <FormControlError errorName="root" />
       <FormButton disabled={isLoading}>

@@ -56,8 +56,13 @@ export const LoginForm = () => {
       className={formStyles.form}
       ref={formRef}
     >
-      <FormInput labelText="Username" name="username" />
-      <FormInput labelText="Password" name="password" type="password" />
+      <FormInput labelText="Username" name="username" autocomplete="email" />
+      <FormInput
+        labelText="Password"
+        name="password"
+        type="password"
+        autocomplete="current-password"
+      />
       <FormControlError errorName="root" />
       <FormButton>Login</FormButton>
       <AuthLink href="/register">{"Don't have an account?"}</AuthLink>

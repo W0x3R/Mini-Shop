@@ -4,7 +4,7 @@ import { useFormContext } from "react-hook-form";
 
 import * as styles from "./FormInput.module.css";
 
-export const FormInput = ({ labelText, name, type = "text" }) => {
+export const FormInput = ({ labelText, name, type = "text", autocomplete }) => {
   const id = useId();
   const { register } = useFormContext();
   return (
@@ -12,7 +12,13 @@ export const FormInput = ({ labelText, name, type = "text" }) => {
       <label htmlFor={id} className={styles.label}>
         {labelText}
       </label>
-      <input id={id} className={styles.input} {...register(name)} type={type} />
+      <input
+        id={id}
+        className={styles.input}
+        {...register(name)}
+        type={type}
+        autoComplete={autocomplete}
+      />
       <FormControlError errorName={name} />
     </>
   );
