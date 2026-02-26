@@ -6,7 +6,6 @@ import {
   incrementQuantity,
   removeFromCart,
 } from "@features/cart/store";
-import { notifySuccess } from "@shared/lib";
 import { Button } from "@shared/ui/Button";
 import { Text } from "@shared/ui/Text";
 import clsx from "clsx";
@@ -25,20 +24,9 @@ export const CartProduct = ({ userProduct, quantity }) => {
 
   const productPayload = { userId, productId: id };
 
-  const handleIncrement = () => {
-    dispatch(incrementQuantity(productPayload));
-    notifySuccess("Product added to cart");
-  };
-
-  const handleDecrement = () => {
-    dispatch(decrementQuantity(productPayload));
-    notifySuccess("Product removed from cart");
-  };
-
-  const handleRemoveProduct = () => {
-    dispatch(removeFromCart(productPayload));
-    notifySuccess("Product removed from cart");
-  };
+  const handleIncrement = () => dispatch(incrementQuantity(productPayload));
+  const handleDecrement = () => dispatch(decrementQuantity(productPayload));
+  const handleRemoveProduct = () => dispatch(removeFromCart(productPayload));
 
   return (
     <article className={styles.wrapper}>

@@ -1,11 +1,12 @@
 import cartLogo from "@assets/images/cart.svg?url";
 import ratingLogo from "@assets/images/ratingLogo.svg?url";
 import reviewLogo from "@assets/images/reviewLogo.svg?url";
+import successLogo from "@assets/images/successLogo.svg?url";
 import { addToCart } from "@features/cart/store";
 import { ProductGallery } from "@features/products/components/ProductGallery";
-import { notifySuccess } from "@shared/lib";
 import { Button } from "@shared/ui/Button";
 import { Text } from "@shared/ui/Text";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import * as styles from "./ProductCard.module.css";
@@ -22,15 +23,24 @@ export const ProductCard = ({ product }) => {
   } = product;
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.auth.currentUser);
+  const [isProductAdding, setIsProductAdding] = useState(false);
+
+  useEffect(() => {
+    if (!isProductAdding) return;
+    const id = setTimeout(() => {
+      setIsProductAdding(false);
+    }, 800);
+    return () => clearTimeout(id);
+  }, [isProductAdding]);
 
   const handleAddToCard = () => {
+    setIsProductAdding(true);
     dispatch(
       addToCart({
         userId: currentUser.id,
         product,
       }),
     );
-    notifySuccess("Product added to cart");
   };
 
   return (
@@ -57,12 +67,13 @@ export const ProductCard = ({ product }) => {
       </div>
       <Button
         className={styles["add-to-cart-btn"]}
+        disabled={isProductAdding}
         onClick={handleAddToCard}
         title="Add to cart"
       >
         <img
           className={styles["cart-logo"]}
-          src={cartLogo}
+          src={isProductAdding ? successLogo : cartLogo}
           width={26}
           height={26}
           alt="Add to cart logo"
