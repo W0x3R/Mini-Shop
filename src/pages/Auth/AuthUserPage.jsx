@@ -10,14 +10,16 @@ export default function AuthUserPage({ mode }) {
   const isLogin = mode === "login";
 
   return (
-    <section className={styles.auth}>
-      <Wrapper className={styles.wrapper}>
-        <Logo className={styles["form-logo"]} width={55} height={55} />
-        <Text className={styles["form-title"]} tag="h1" variant="medium">
-          {isLogin ? "Login" : "Registration"}
-        </Text>
-        {isLogin ? <LoginForm /> : <RegisterForm />}
-      </Wrapper>
-    </section>
+    <main>
+      <section className={styles.auth}>
+        <Wrapper className={styles.wrapper}>
+          <Logo className={styles["form-logo"]} width={55} height={55} />
+          <Text className={styles["form-title"]} tag="h1" variant="medium">
+            {isLogin ? "Login" : "Registration"}
+          </Text>
+          {isLogin ? <LoginForm /> : <RegisterForm />}
+        </Wrapper>
+      </section>
+    </main>
   );
 }
