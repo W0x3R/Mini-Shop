@@ -7,6 +7,11 @@
   color: var(--black-color);
   box-shadow: var(--basic-shadow);
   transition: var(--basic-transition);
+
+  @media (max-width: 480px) {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .f-carousel.has-arrows .f-button.is-arrow:hover,
@@ -15,10 +20,32 @@
   color: var(--white-color);
 }
 
+.f-carousel__slide {
+  display: flex;
+  justify-content: center;
+}
+
 .f-carousel__slide > a {
   outline: none;
 }
 
 .f-carousel__viewport:has(a:focus-visible) {
   outline: 1px solid var(--black-color);
+}
+
+.f-lazyload {
+  width: 320px;
+  height: auto;
+
+  @media (max-width: 1024px) {
+    width: 300px;
+  }
+
+  @media (max-width: 768px) {
+    width: 280px;
+  }
+
+  @media (max-width: 480px) {
+    width: 250px;
+  }
 }

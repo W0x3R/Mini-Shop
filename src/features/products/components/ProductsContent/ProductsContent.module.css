@@ -1,7 +1,6 @@
 .title {
   margin-bottom: 40px;
   text-align: center;
-  font-size: 42px;
 
   &.error {
     margin-bottom: 20px;
@@ -11,12 +10,10 @@
 .showmore-btn {
   padding: 14px 30px;
   border-radius: 10px;
-  font-size: 18px;
   color: var(--white-color);
   background-color: var(--primary-green-color);
   opacity: 0.9;
   text-align: center;
-  transition: var(--basic-transition);
   box-shadow: var(--basic-shadow);
 
   &:disabled {
@@ -29,5 +26,9 @@
     &:hover {
       opacity: 1;
     }
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 25px;
   }
 }

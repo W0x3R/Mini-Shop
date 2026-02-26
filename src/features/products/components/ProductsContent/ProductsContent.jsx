@@ -26,7 +26,8 @@ export const ProductsContent = () => {
     <>
       <Text
         className={clsx(styles.title, isError ? styles.error : "")}
-        variant="h1"
+        tag="h1"
+        variant="big"
       >
         Our Products
       </Text>

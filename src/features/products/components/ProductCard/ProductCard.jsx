@@ -46,21 +46,29 @@ export const ProductCard = ({ product }) => {
   return (
     <article className={styles.product} data-product-id={id}>
       <ProductGallery images={images} title={title} />
-      <Text className={styles["product-title"]} variant="h2">
+      <Text className={styles["product-title"]} tag="h2" variant="small">
         {title}
       </Text>
-      <Text className={styles["product-description"]} variant="p">
+      <Text
+        className={styles["product-description"]}
+        tag="p"
+        variant="small-text"
+      >
         {description}
       </Text>
-      <Text className={styles["product-price"]} variant="p">
+      <Text className={styles["product-price"]} tag="p" variant="small-text">
         {`${price} $`}
       </Text>
       <div className={styles["product-additional-info"]}>
-        <Text className={styles["product-rating"]} variant="p">
+        <Text className={styles["product-rating"]} tag="p" variant="small-text">
           <img width={14} height={14} src={ratingLogo} />
           <span>{rating}</span>
         </Text>
-        <Text className={styles["product-reviews"]} variant="p">
+        <Text
+          className={styles["product-reviews"]}
+          tag="p"
+          variant="small-text"
+        >
           <img width={14} height={14} src={reviewLogo} />
           <span>{reviewsLength} reviews</span>
         </Text>
