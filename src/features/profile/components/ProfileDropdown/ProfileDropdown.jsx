@@ -1,4 +1,5 @@
 import { Link } from "@shared/ui/Link";
+import { Text } from "@shared/ui/Text";
 import clsx from "clsx";
 
 import * as styles from "./ProfileDropdown.module.css";
@@ -9,8 +10,20 @@ export const ProfileDropdown = ({ isOpen, username, email, onLogout }) => {
       className={clsx(styles["profile-dropdown"], isOpen ? styles.show : "")}
     >
       <div className={styles["profile-dropdown-info"]}>
-        <p className={styles["profile-dropdown-username"]}>{username}</p>
-        <p className={styles["profile-dropdown-email"]}>{email}</p>
+        <Text
+          className={styles["profile-dropdown-username"]}
+          tag="p"
+          variant="small-text"
+        >
+          {username}
+        </Text>
+        <Text
+          className={styles["profile-dropdown-email"]}
+          tag="p"
+          variant="small-text"
+        >
+          {email}
+        </Text>
       </div>
       <Link
         className={styles["profile-dropdown-logout"]}
