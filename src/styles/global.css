@@ -10,6 +10,10 @@ body {
   height: 100%;
   letter-spacing: 0;
   font-family: var(--primary-font-family);
+
+  &.disable-scroll {
+    overflow: hidden;
+  }
 }
 
 a,
