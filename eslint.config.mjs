@@ -10,10 +10,11 @@ import globals from "globals";
 export default [
   { ignores: ["dist", "node_modules"] },
 
+  // базовые правила JS
   js.configs.recommended,
   prettierConfig,
 
-  // ✅ NODE FILES (webpack, eslint config и т.д.)
+  // Node файлы (webpack, eslint config)
   {
     files: ["webpack.config.js", "eslint.config.js"],
     languageOptions: {
@@ -22,10 +23,9 @@ export default [
     },
   },
 
-  // ✅ REACT / BROWSER FILES
+  // React / Browser
   {
     files: ["**/*.{js,jsx}"],
-
     languageOptions: {
       ecmaVersion: 2023,
       sourceType: "module",
@@ -66,21 +66,26 @@ export default [
     },
 
     rules: {
+      // React
       ...react.configs.recommended.rules,
       ...react.configs["jsx-runtime"].rules,
       ...reactHooks.configs.recommended.rules,
 
-      "prettier/prettier": "error",
+      // Prettier интеграция
+      "prettier/prettier": [
+        "error",
+        { endOfLine: "auto" } // важно для Windows CRLF
+      ],
 
+      // импорты
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
-
       "import/no-unresolved": ["error", { ignore: ["\\?url$"] }],
       "import/order": "off",
 
+      // React настройки
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
-
       "react-refresh/only-export-components": "off",
     },
   },

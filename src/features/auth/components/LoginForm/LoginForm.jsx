@@ -23,7 +23,7 @@ export const LoginForm = () => {
     const user = users.find(
       (user) =>
         user.username === formData.username &&
-        user.password === formData.password,
+        user.password === formData.password
     );
     if (!user) return { type: INVALID_CREDENTIALS };
 

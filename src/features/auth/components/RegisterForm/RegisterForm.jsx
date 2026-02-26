@@ -23,7 +23,7 @@ export const RegisterForm = () => {
 
   const handleRegisterSubmit = async (formData) => {
     const isUserAlreadyExist = users.find(
-      (user) => user.username === formData.username,
+      (user) => user.username === formData.username
     );
 
     if (isUserAlreadyExist) return { type: USER_EXISTS };

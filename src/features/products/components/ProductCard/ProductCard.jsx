@@ -39,7 +39,7 @@ export const ProductCard = ({ product }) => {
       addToCart({
         userId: currentUser.id,
         product,
-      }),
+      })
     );
   };
 
