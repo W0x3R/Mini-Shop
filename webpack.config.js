@@ -124,12 +124,12 @@ module.exports = (env, argv) => {
           { from: "./public/fav-icons", to: "assets" },
           { from: "./public/site.webmanifest", to: "site.webmanifest" },
           {
-            from: "./public/web-app-manifest-192x192",
-            to: "web-app-manifest-192x192",
+            from: "./public/web-app-manifest-192x192.png",
+            to: "web-app-manifest-192x192.png",
           },
           {
-            from: "./public/web-app-manifest-512x512",
-            to: "web-app-manifest-512x512",
+            from: "./public/web-app-manifest-512x512.png",
+            to: "web-app-manifest-512x512.png",
           },
           { from: "./public/robots.txt", to: "robots.txt" },
         ],
