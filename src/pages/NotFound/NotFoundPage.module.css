@@ -1,6 +1,10 @@
 .not-found {
   padding-block: 60px 40px;
   min-height: calc(100vh - 110px);
+
+  @media (max-width: 768px) {
+    min-height: calc(100vh - 96px);
+  }
 }
 
 .wrapper {
@@ -11,10 +15,10 @@
 }
 
 .title {
-  font-size: 38px;
+  margin-bottom: 8px;
 }
 
 .img {
-  width: 800px;
-  height: 600px;
+  width: min(800px, 90%);
+  height: auto;
 }

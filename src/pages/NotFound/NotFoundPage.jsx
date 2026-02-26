@@ -8,7 +8,7 @@ export default function NotFoundPage() {
   return (
     <section className={styles["not-found"]}>
       <Wrapper className={styles.wrapper}>
-        <Text variant="h1" className={styles.title}>
+        <Text tag="h1" className={styles.title} variant="big">
           Page Not Found
         </Text>
         <img
