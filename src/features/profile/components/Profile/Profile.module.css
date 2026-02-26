@@ -9,4 +9,8 @@
       background-color: #80808029;
     }
   }
+
+  @media (max-width: 1280px) {
+    margin-inline: 25px;
+  }
 }

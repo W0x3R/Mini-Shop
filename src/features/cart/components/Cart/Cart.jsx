@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 import * as styles from "./Cart.module.css";
 
-export const Cart = () => {
+export const Cart = ({ onClick }) => {
   const productsCount = useSelector(selectCartItemsCount);
 
   const { animate, handleAnimationEnd } =
@@ -15,8 +15,14 @@ export const Cart = () => {
 
   return (
     <div className={styles["cart-wrapper"]}>
-      <Link className={styles["cart-link"]} to="/cart">
-        <img src={cartLogo} width={30} height={30} alt="Open user cart" />
+      <Link className={styles["cart-link"]} to="/cart" onClick={onClick}>
+        <img
+          className={styles["cart-img"]}
+          src={cartLogo}
+          width={30}
+          height={30}
+          alt="Open user cart"
+        />
       </Link>
       <span
         onAnimationEnd={handleAnimationEnd}

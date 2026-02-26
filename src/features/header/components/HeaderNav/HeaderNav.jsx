@@ -3,12 +3,13 @@ import { NavLink } from "react-router";
 
 import * as styles from "./HeaderNav.module.css";
 
-export const HeaderNav = () => {
+export const HeaderNav = ({ isBurgerOpen, onClick }) => {
   return (
-    <nav className={styles.nav}>
-      <ul className={styles.list}>
+    <nav className={clsx(styles.nav, isBurgerOpen && styles.open)}>
+      <ul className={clsx(styles.list, isBurgerOpen && styles.open)}>
         <li>
           <NavLink
+            onClick={onClick}
             className={({ isActive }) =>
               clsx(styles["list-link"], isActive && styles.active)
             }
@@ -19,6 +20,7 @@ export const HeaderNav = () => {
         </li>
         <li>
           <NavLink
+            onClick={onClick}
             className={({ isActive }) =>
               clsx(styles["list-link"], isActive && styles.active)
             }

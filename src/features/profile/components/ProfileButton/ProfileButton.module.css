@@ -11,6 +11,12 @@
   &:focus-visible .profile-arrow {
     outline: 1px solid var(--black-color);
   }
+
+  @media (max-width: 768px) {
+    column-gap: 8px;
+    align-items: center;
+    padding: 8px;
+  }
 }
 
 .profile-arrow {
@@ -21,5 +27,11 @@
 }
 
 .profile-logo {
-  display: block;
+  width: 40px;
+  height: 40px;
+
+  @media (max-width: 768px) {
+    width: 36px;
+    height: 36px;
+  }
 }
