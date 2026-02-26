@@ -8,11 +8,22 @@
   ],
   "routes": [
     {
-      "handle": "filesystem"
+      "src": "/(site\\.webmanifest|favicon\\.ico|favicon-.*\\.png|favicon\\.svg|apple-touch-icon\\.png)",
+      "dest": "/$1"
     },
     {
-      "src": "/.*",
-      "dest": "/index.html"
-    }
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/fonts/(.*)",
+      "dest": "/fonts/$1"
+    },
+    {
+      "src": "/(robots\\.txt|manifest\\.webmanifest)",
+      "dest": "/$1"
+    },
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
   ]
 }
