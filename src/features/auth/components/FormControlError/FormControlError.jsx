@@ -10,7 +10,7 @@ export const FormControlError = ({ errorName }) => {
   return (
     errors[errorName] && (
       <Error className={styles["auth-error"]} variant="small">
-        {errors[errorName].message}
+        <p>{errors[errorName].message}</p>
       </Error>
     )
   );
