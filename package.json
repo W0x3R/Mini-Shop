@@ -17,10 +17,6 @@
     "type": "git",
     "url": "git+https://github.com/W0x3R/Mini-Shop.git"
   },
-  "engines": {
-    "node": "22.x",
-    "npm": "10.x"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",

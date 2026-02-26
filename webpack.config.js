@@ -123,6 +123,14 @@ module.exports = (env, argv) => {
         patterns: [
           { from: "./public/fav-icons", to: "assets" },
           { from: "./public/site.webmanifest", to: "site.webmanifest" },
+          {
+            from: "./public/web-app-manifest-192x192",
+            to: "web-app-manifest-192x192",
+          },
+          {
+            from: "./public/web-app-manifest-512x512",
+            to: "web-app-manifest-512x512",
+          },
           { from: "./public/robots.txt", to: "robots.txt" },
         ],
       }),
