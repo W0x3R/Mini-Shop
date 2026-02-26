@@ -23,10 +23,10 @@
 .f-carousel__slide {
   display: flex;
   justify-content: center;
-}
 
-.f-carousel__slide > a {
-  outline: none;
+  & > a {
+    outline: none;
+  }
 }
 
 .f-carousel__viewport:has(a:focus-visible) {

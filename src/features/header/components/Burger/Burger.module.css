@@ -13,6 +13,10 @@
     content: "";
     padding: 28px;
     position: absolute;
+
+    @media (max-width: 480px) {
+      padding: 22px;
+    }
   }
 
   &:where(.open) {
@@ -21,6 +25,11 @@
 
   @media (max-width: 768px) {
     display: flex;
+  }
+
+  @media (max-width: 480px) {
+    width: 32px;
+    height: 32px;
   }
 }
 
