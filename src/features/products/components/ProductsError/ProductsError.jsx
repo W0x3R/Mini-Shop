@@ -6,7 +6,7 @@ import * as styles from "./ProductsError.module.css";
 export const ProductsError = () => {
   return (
     <>
-      <Error className={styles.error}>
+      <Error className={styles.error} variant="big">
         <p>Unable to load products</p>
         <p>Please try again.</p>
       </Error>

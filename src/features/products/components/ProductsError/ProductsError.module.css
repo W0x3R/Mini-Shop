@@ -1,10 +1,18 @@
 .error {
   margin-bottom: 20px;
   text-align: center;
-  font-size: 26px;
 }
 
 .error-img {
   width: 150px;
-  height: 150px;
+  height: auto;
+  align-self: center;
+
+  @media (max-width: 768px) {
+    width: 130px;
+  }
+
+  @media (max-width: 480px) {
+    width: 115px;
+  }
 }
