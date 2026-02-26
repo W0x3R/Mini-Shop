@@ -6,10 +6,12 @@
   "scripts": {
     "start": "webpack serve --mode development --config webpack.config.js",
     "build": "webpack --mode production --config webpack.config.js",
+    "preview": "npx serve -s dist",
     "build:dev": "webpack --mode development --config webpack.config.js",
     "build:watch": "webpack --mode development --config webpack.config.js --watch",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "clean": "rd /s /q dist"
   },
   "repository": {
     "type": "git",
@@ -44,6 +46,7 @@
     "@svgr/webpack": "^8.1.0",
     "babel-loader": "^10.0.0",
     "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^13.0.1",
     "css-loader": "^7.1.4",
     "css-minimizer-webpack-plugin": "^7.0.4",
     "eslint": "^9.39.3",
@@ -67,5 +70,11 @@
     "webpack": "^5.105.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.3"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "IE 10",
+    "not dead"
+  ]
 }

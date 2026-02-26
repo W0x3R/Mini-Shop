@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isDev = argv.mode === "development";
@@ -33,6 +34,9 @@ module.exports = (env, argv) => {
         "@assets": path.resolve(__dirname, "src/assets/"),
         "@shared": path.resolve(__dirname, "src/shared/"),
       },
+    },
+    performance: {
+      hints: false,
     },
 
     devtool: isDev ? "eval-source-map" : false,
@@ -115,6 +119,13 @@ module.exports = (env, argv) => {
 
     plugins: [
       new CleanWebpackPlugin(),
+      new CopyWebpackPlugin({
+        patterns: [
+          { from: "./public/fav-icons", to: "assets" },
+          { from: "./public/site.webmanifest", to: "site.webmanifest" },
+          { from: "./public/robots.txt", to: "robots.txt" },
+        ],
+      }),
       new ESLintPlugin({
         extensions: ["js", "jsx"],
         context: path.resolve(__dirname, "src"),

@@ -13,6 +13,16 @@ export default [
   js.configs.recommended,
   prettierConfig,
 
+  // ✅ NODE FILES (webpack, eslint config и т.д.)
+  {
+    files: ["webpack.config.js", "eslint.config.js"],
+    languageOptions: {
+      globals: globals.node,
+      sourceType: "commonjs",
+    },
+  },
+
+  // ✅ REACT / BROWSER FILES
   {
     files: ["**/*.{js,jsx}"],
 
@@ -49,7 +59,6 @@ export default [
           ],
           extensions: [".js", ".jsx"],
         },
-
         webpack: {
           config: "webpack.config.js",
         },
@@ -59,7 +68,6 @@ export default [
     rules: {
       ...react.configs.recommended.rules,
       ...react.configs["jsx-runtime"].rules,
-
       ...reactHooks.configs.recommended.rules,
 
       "prettier/prettier": "error",

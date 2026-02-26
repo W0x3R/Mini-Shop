@@ -61,6 +61,7 @@ export const CartProduct = ({ userProduct, quantity }) => {
         <Button
           className={styles["decrement-btn"]}
           onClick={handleDecrement}
+          aria-label="Decrease quantity"
         ></Button>
         <Text
           className={clsx(styles.count, animate && styles.bump)}
@@ -73,6 +74,7 @@ export const CartProduct = ({ userProduct, quantity }) => {
         <Button
           className={styles["increment-btn"]}
           onClick={handleIncrement}
+          aria-label="Increase quantity"
         ></Button>
       </div>
       <Text

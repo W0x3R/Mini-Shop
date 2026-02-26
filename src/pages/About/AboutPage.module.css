@@ -61,13 +61,12 @@
   border-radius: 10px;
   color: var(--white-color);
   background-color: var(--primary-green-color);
-  opacity: 0.9;
   transition: var(--basic-transition);
   box-shadow: var(--basic-shadow);
 
   @media (hover: hover) {
     &:hover {
-      opacity: 1;
+      background-color: rgb(32, 167, 32);
     }
   }
 

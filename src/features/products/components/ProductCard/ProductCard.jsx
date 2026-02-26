@@ -61,7 +61,7 @@ export const ProductCard = ({ product }) => {
       </Text>
       <div className={styles["product-additional-info"]}>
         <Text className={styles["product-rating"]} tag="p" variant="small-text">
-          <img width={14} height={14} src={ratingLogo} />
+          <img width={14} height={14} src={ratingLogo} alt="" />
           <span>{rating}</span>
         </Text>
         <Text
@@ -69,7 +69,7 @@ export const ProductCard = ({ product }) => {
           tag="p"
           variant="small-text"
         >
-          <img width={14} height={14} src={reviewLogo} />
+          <img width={14} height={14} src={reviewLogo} alt="" />
           <span>{reviewsLength} reviews</span>
         </Text>
       </div>

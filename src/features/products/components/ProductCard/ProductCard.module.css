@@ -22,7 +22,7 @@
   column-gap: 2px;
   margin-bottom: 2px;
   font-weight: 600;
-  color: var(--primary-green-color);
+  color: green;
 }
 
 .product-rating-wrapper,
