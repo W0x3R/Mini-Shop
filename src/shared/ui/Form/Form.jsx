@@ -3,6 +3,8 @@ import clsx from "clsx";
 import { useImperativeHandle } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
+import * as styles from "./Form.module.css";
+
 export const Form = ({
   children,
   validationSchema,
@@ -22,7 +24,10 @@ export const Form = ({
 
   return (
     <FormProvider {...methods}>
-      <form className={clsx(className)} onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className={clsx(styles.form, className)}
+        onSubmit={handleSubmit(onSubmit)}
+      >
         {children}
       </form>
     </FormProvider>

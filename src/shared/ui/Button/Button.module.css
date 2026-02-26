@@ -1,8 +1,10 @@
 .button {
   transition: var(--basic-transition);
   outline: none;
+  font-weight: 500;
+  font-size: 16px;
 
-  &:focus-visible {
-    border-color: var(--focus-color);
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 }

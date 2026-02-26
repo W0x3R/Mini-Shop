@@ -2,8 +2,8 @@ import clsx from "clsx";
 
 import * as styles from "./Text.module.css";
 
-export const Text = ({ children, className, variant = "p", ...props }) => {
-  const Tag = variant;
+export const Text = ({ children, className, tag = "p", variant, ...props }) => {
+  const Tag = tag;
   return (
     <Tag className={clsx(styles[variant], className)} {...props}>
       {children}

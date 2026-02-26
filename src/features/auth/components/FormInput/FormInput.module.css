@@ -5,7 +5,6 @@
 
 .input {
   margin-bottom: 14px;
-  min-width: 400px;
   padding: 8px 10px;
   border: 1px solid #d1d9e0;
   border-radius: 8px;
@@ -22,5 +21,14 @@
 
   &:focus-visible {
     border-color: var(--focus-color);
+  }
+}
+
+.label,
+.input {
+  font-size: 16px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 }
