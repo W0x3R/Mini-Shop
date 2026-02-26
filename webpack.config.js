@@ -161,10 +161,6 @@ module.exports = (env, argv) => {
       open: true,
       hot: true,
       historyApiFallback: true,
-      static: {
-        directory: path.join(__dirname, "public"),
-        publicPath: "/",
-      },
     },
   };
 };
