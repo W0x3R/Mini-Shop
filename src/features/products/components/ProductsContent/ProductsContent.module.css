@@ -8,6 +8,7 @@
 }
 
 .showmore-btn {
+  align-self: center;
   padding: 14px 30px;
   border-radius: 10px;
   color: var(--white-color);

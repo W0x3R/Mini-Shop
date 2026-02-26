@@ -1,9 +1,7 @@
-/* Переделать на флексы */
-
 .wrapper {
-  display: flex;
+  display: grid;
   justify-content: center;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, clamp(290px, 46.8vw, 360px));
   gap: 25px;
   margin-bottom: 40px;
 }
